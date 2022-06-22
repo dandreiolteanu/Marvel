@@ -8,15 +8,19 @@
 import Foundation
 import Combine
 
-protocol CharactersListFlowDelegate: AnyObject { }
+protocol CharactersListFlowDelegate: AnyObject {
+    func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter)
+}
 
 protocol CharactersListViewModelInputs {
     func viewLoaded()
+    func loadNextPage()
+    func didSelectRow(at indexPath: IndexPath)
 }
 
 protocol CharactersListViewModelOutputs {
-    var cellViewModels: [CharacterListCellViewModel] { get }
-    var dataSourceChanged: AnyPublisher<Void, Never> { get }
+    var dataSourceSnapshot: CharactersListDiffableSnapshot { get }
+    var viewState: AnyPublisher<ViewState, Never> { get }
 }
 
 protocol CharactersListViewModel {
@@ -25,6 +29,12 @@ protocol CharactersListViewModel {
 }
 
 final class CharactersListViewModelImpl: CharactersListViewModel, CharactersListViewModelInputs, CharactersListViewModelOutputs {
+
+    // MARK: - Section
+
+    enum Section {
+        case main
+    }
 
     // MARK: - FlowDelegate
 
@@ -38,17 +48,21 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
 
     var outputs: CharactersListViewModelOutputs { self }
 
-    var cellViewModels = [CharacterListCellViewModel]()
+    var dataSourceSnapshot = CharactersListDiffableSnapshot()
 
-    var dataSourceChanged: AnyPublisher<Void, Never> {
-        _dataSourceChanged.eraseToAnyPublisher()
+    var viewState: AnyPublisher<ViewState, Never> {
+        _viewState.eraseToAnyPublisher()
     }
 
     // MARK: - Private Properties
 
     private let charactersService: CharactersService
 
-    private let _dataSourceChanged = PassthroughSubject<Void, Never>()
+    private var marvelCharacters = [MarvelCharacter]()
+    private let _viewState = CurrentValueSubject<ViewState, Never>(.loading)
+    private var hasMorePages = true
+    private var nextOffset = 0
+    private var limit = 10
 
     // MARK: - Init
 
@@ -59,14 +73,46 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
     // MARK: - Public Methods
 
     func viewLoaded() {
-        charactersService.getCharacters(offset: 0, limit: 20) { [weak self] result in
+        loadData(loadingType: .normal)
+    }
+
+    func loadNextPage() {
+        guard hasMorePages else { return }
+
+        loadData(loadingType: .nextPage)
+    }
+
+    func didSelectRow(at indexPath: IndexPath) {
+        flowDelegate?.shouldShowCharacterDetails(on: self, marvelCharacter: marvelCharacters[indexPath.row])
+    }
+
+    // MARK: - Private Methods
+
+    private func loadData(loadingType: ViewState.LoadingType) {
+        _viewState.send(.loading(loadingType))
+
+        charactersService.getCharacters(offset: nextOffset, limit: limit) { [weak self] result in
+            guard let self = self else { return }
+
             switch result {
             case .success(let paginated):
-                self?.cellViewModels = paginated.results.map { CharacterListCellViewModel(marvelCharacter: $0) }
-                self?._dataSourceChanged.send(())
+                self.hasMorePages = paginated.hasMorePages
+                self.nextOffset = paginated.nextOffset
+                self.marvelCharacters += paginated.results
+                self.dataSourceSnapshot = self.makeSnapshot(from: self.marvelCharacters)
+
+                self._viewState.send(self.marvelCharacters.isEmpty ? .empty : .content)
             case .failure(let error):
-                print(error)
+                self._viewState.send(.error(error.localizedDescription))
             }
         }
+    }
+
+    private func makeSnapshot(from marvelCharacters: [MarvelCharacter]) -> CharactersListDiffableSnapshot {
+        var snapshot = CharactersListDiffableSnapshot()
+        snapshot.appendSections([.main])
+        snapshot.appendItems(marvelCharacters.map(CharacterListCellViewModel.init), toSection: .main)
+
+        return snapshot
     }
 }

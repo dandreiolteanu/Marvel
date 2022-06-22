@@ -23,6 +23,7 @@ final class CharacterListTableViewCell: UITableViewCell, SelectionAnimating {
 
     private let containerView = UIStackView()
     private let thumbnailImageView = UIImageView()
+    private let gradientView = GradientView()
     private let titleLabel = UILabel()
 
     // MARK: - Init
@@ -73,13 +74,14 @@ final class CharacterListTableViewCell: UITableViewCell, SelectionAnimating {
 
         thumbnailImageView.contentMode = .scaleAspectFill
         thumbnailImageView.clipsToBounds = true
-        thumbnailImageView.setImage(with: URL(string: "http://i.annihil.us/u/prod/marvel/i/mg/1/b0/5269678709fb7.jpg"))
         containerView.addSubview(thumbnailImageView)
+
+        gradientView.gradientColors = [.secondaryBackground.withAlphaComponent(0.0), .secondaryBackground]
+        containerView.addSubview(gradientView)
 
         titleLabel.font = .h1Bold
         titleLabel.textColor = .primaryText
         titleLabel.numberOfLines = 0
-        titleLabel.text = ["Deadpool", "Thor"].randomElement()
         containerView.addSubview(titleLabel)
 
         containerView.snp.makeConstraints {
@@ -89,6 +91,11 @@ final class CharacterListTableViewCell: UITableViewCell, SelectionAnimating {
 
         thumbnailImageView.snp.makeConstraints {
             $0.edges.equalToSuperview()
+        }
+
+        gradientView.snp.makeConstraints {
+            $0.bottom.leading.trailing.equalToSuperview()
+            $0.height.equalToSuperview().multipliedBy(0.4)
         }
 
         titleLabel.snp.makeConstraints {

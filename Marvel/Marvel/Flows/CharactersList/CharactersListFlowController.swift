@@ -46,4 +46,8 @@ final class CharactersListFlowController: NavigationFlowController {
 
 // MARK: - CharactersListFlowDelegate
 
-extension CharactersListFlowController: CharactersListFlowDelegate { }
+extension CharactersListFlowController: CharactersListFlowDelegate {
+    func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter) {
+        // TODO: - Show character details
+    }
+}

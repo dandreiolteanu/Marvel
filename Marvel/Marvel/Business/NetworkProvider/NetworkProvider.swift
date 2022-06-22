@@ -18,9 +18,13 @@ struct NetworkProvider<Target: TargetType> {
     // MARK: - Init
     
     init() {
-        self.provider = MoyaProvider<Target>(plugins: [
-            NetworkLoggerPlugin(configuration: NetworkLoggerPlugin.Configuration(logOptions: .verbose))
-        ])
+        if Environment.current.isDebug {
+            self.provider = MoyaProvider<Target>(plugins: [
+                NetworkLoggerPlugin(configuration: NetworkLoggerPlugin.Configuration(logOptions: .verbose))
+            ])
+        } else {
+            self.provider = MoyaProvider<Target>()
+        }
     }
     
     // MARK: - Public Methods
