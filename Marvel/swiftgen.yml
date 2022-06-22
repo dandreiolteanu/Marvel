@@ -1,0 +1,12 @@
+strings:
+  inputs: Marvel/Resources/en.lproj/Localizable.strings
+  outputs:
+    templateName: structured-swift5
+    output: Marvel/Resources/Generated/Strings.swift
+
+xcassets:
+  inputs:
+    - Marvel/Resources/Assets.xcassets
+  outputs:
+    - templateName: swift5
+      output: Marvel/Resources/Generated/Assets.swift
