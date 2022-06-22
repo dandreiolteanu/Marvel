@@ -1,5 +1,5 @@
 //
-//  SplashScreenBannerAnimating.swift
+//  ReplicatedViewAnimating.swift
 //  Marvel
 //
 //  Created by Andrei Olteanu on 22.06.2022.
@@ -11,12 +11,14 @@ import SnapKit
 protocol ReplicatedViewAnimating {
     var replicatorsNumber: Int { get }
 
-    func replicatedView(at replicatorNumber: Int) -> UIView
+    func xOffset(at index: Int) -> CGFloat
+    func yOffset(at index: Int) -> CGFloat
+    func replicatedView(at index: Int) -> UIView
+    func startReplicatingAnimation(until condition: @escaping BoolReturnClosure)
 }
 
 extension ReplicatedViewAnimating where Self: SplashScreenViewController {
-
-    func startReplicatingAnimation() {
+    func startReplicatingAnimation(until condition: @escaping BoolReturnClosure) {
         var replicatedViews = [UIView]()
 
         for i in 0..<replicatorsNumber {
@@ -35,7 +37,7 @@ extension ReplicatedViewAnimating where Self: SplashScreenViewController {
                 guard $0.offset > 0 else { return }
 
                 $0.element.alpha = 0
-                $0.element.transform = CGAffineTransform(translationX: -12 * CGFloat($0.offset), y: -12 * CGFloat($0.offset))
+                $0.element.transform = CGAffineTransform(translationX: xOffset(at: $0.offset), y: yOffset(at: $0.offset))
             }
 
             UIView.animate(withDuration: 0.33) {
@@ -54,6 +56,8 @@ extension ReplicatedViewAnimating where Self: SplashScreenViewController {
                 },
                                completion: { _ in
                     if offset == replicatedViews.count - 1 {
+                        guard !condition() else { return }
+
                         repeatAnimation()
                     }
                 })

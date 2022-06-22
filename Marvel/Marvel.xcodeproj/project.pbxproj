@@ -44,7 +44,7 @@
 		FA3948D82862FFFE00D3DDF2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3948D72862FFFE00D3DDF2 /* Thumbnail.swift */; };
 		FA5A44ED286309AD00931EDC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44EC286309AD00931EDC /* Colors.swift */; };
 		FA5A44EF286309E500931EDC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5A44EE286309E500931EDC /* Colors.xcassets */; };
-		FA5A44F128630AE800931EDC /* SplashScreenBannerAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F028630AE800931EDC /* SplashScreenBannerAnimating.swift */; };
+		FA5A44F128630AE800931EDC /* ReplicatedViewAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F028630AE800931EDC /* ReplicatedViewAnimating.swift */; };
 		FA5A44F4286316D000931EDC /* CharactersListFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F3286316D000931EDC /* CharactersListFlowController.swift */; };
 		FA5A44F72863170300931EDC /* CharactersListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F62863170300931EDC /* CharactersListViewController.swift */; };
 		FA5A44FA28631D4B00931EDC /* CharactersService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F928631D4B00931EDC /* CharactersService.swift */; };
@@ -140,7 +140,7 @@
 		FA3948D72862FFFE00D3DDF2 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
 		FA5A44EC286309AD00931EDC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FA5A44EE286309E500931EDC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		FA5A44F028630AE800931EDC /* SplashScreenBannerAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenBannerAnimating.swift; sourceTree = "<group>"; };
+		FA5A44F028630AE800931EDC /* ReplicatedViewAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatedViewAnimating.swift; sourceTree = "<group>"; };
 		FA5A44F3286316D000931EDC /* CharactersListFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListFlowController.swift; sourceTree = "<group>"; };
 		FA5A44F62863170300931EDC /* CharactersListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersListViewController.swift; sourceTree = "<group>"; };
 		FA5A44F928631D4B00931EDC /* CharactersService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharactersService.swift; sourceTree = "<group>"; };
@@ -352,8 +352,8 @@
 			isa = PBXGroup;
 			children = (
 				FA109F6728622418005E1C94 /* KeyboardPresenting.swift */,
+				FA5A44F028630AE800931EDC /* ReplicatedViewAnimating.swift */,
 				FA5A451B2863320100931EDC /* SelectionAnimating.swift */,
-				FA5A44F028630AE800931EDC /* SplashScreenBannerAnimating.swift */,
 				FA5A4504286329DE00931EDC /* Reusable */,
 			);
 			path = Protocols;
@@ -834,7 +834,7 @@
 				FAF8D6502862488400C8CD29 /* Typealiases.swift in Sources */,
 				FA5A44FE2863211D00931EDC /* CharactersListViewModel.swift in Sources */,
 				FA109F972862331D005E1C94 /* SplashScreenViewController.swift in Sources */,
-				FA5A44F128630AE800931EDC /* SplashScreenBannerAnimating.swift in Sources */,
+				FA5A44F128630AE800931EDC /* ReplicatedViewAnimating.swift in Sources */,
 				FA109F9128623218005E1C94 /* RootFlowController+Extensions.swift in Sources */,
 				FA5A45232863391F00931EDC /* ViewState.swift in Sources */,
 				FA5A45162863307B00931EDC /* AppStyle.swift in Sources */,

@@ -31,6 +31,7 @@ extension RootFlowController {
 
             UIView.animate(withDuration: 0.33, animations: {
                 snapshotView.alpha = 0.0
+                snapshotView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
             }, completion: { _ in
                 snapshotView.removeFromSuperview()
                 completion?()

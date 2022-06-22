@@ -31,11 +31,14 @@ final class SplashScreenViewController: BaseViewController {
         super.setupView()
 
         view.backgroundColor = .primaryBackground
-        startReplicatingAnimation()
     }
 
     override func setupBindings() {
         super.setupBindings()
+
+        startReplicatingAnimation(until: { [weak self] in
+            self?.viewModel.outputs.animationShouldRepeat == false
+        })
 
         viewModel.inputs.viewLoaded()
     }
@@ -48,7 +51,17 @@ extension SplashScreenViewController: ReplicatedViewAnimating {
         6
     }
 
-    func replicatedView(at replicatorNumber: Int) -> UIView {
+    func xOffset(at index: Int) -> CGFloat {
+        -12 * CGFloat(index)
+    }
+
+    func yOffset(at index: Int) -> CGFloat {
+        -12 * CGFloat(index)
+    }
+
+    func replicatedView(at index: Int) -> UIView {
+        // I've added the index to maybe use different images or views based on it
+        // example: (index % 2 == 0) ? banner with a color : banner with another color
         UIImageView(image: Asset.imgBanner.image)
     }
 }
