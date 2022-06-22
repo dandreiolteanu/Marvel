@@ -14,8 +14,8 @@ private enum Colors: String {
     case secondaryBackground
 
     case primaryText
-    case primaryTextDark
-    case secondaryText
+
+    case marvelRed
 }
 
 // MARK: - Colors
@@ -25,8 +25,8 @@ extension UIColor {
     static let secondaryBackground = UIColor.initialize(with: .secondaryBackground)
 
     static let primaryText = UIColor.initialize(with: .primaryText)
-    static let primaryTextDark = UIColor.initialize(with: .primaryTextDark)
-    static let secondaryText = UIColor.initialize(with: .secondaryText)
+
+    static let marvelRed = UIColor.initialize(with: .marvelRed)
 }
 
 // MARK: - Helpers

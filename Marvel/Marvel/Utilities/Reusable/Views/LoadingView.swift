@@ -1,19 +1,18 @@
 //
-//  LoadingTableViewCell.swift
+//  LoadingView.swift
 //  Marvel
 //
 //  Created by Andrei Olteanu on 22.06.2022.
 //
 
 import UIKit
-import SnapKit
 
-final class FooterActivityIndicatorView: UIActivityIndicatorView {
+final class LoadingView: UIActivityIndicatorView {
 
     // MARK: - Init
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    init() {
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: .padding6x))
 
         commonInit()
     }

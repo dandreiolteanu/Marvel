@@ -14,7 +14,7 @@ final class CharactersListViewController: BaseViewController {
     // MARK: - Private Properties
 
     private let tableView = UITableView()
-    private var footerActivityIndicatorView: FooterActivityIndicatorView?
+    private let searchController = UISearchController(searchResultsController: nil)
 
     private let viewModel: CharactersListViewModel
     private lazy var dataSource: CharactersListDiffableDataSource = {
@@ -41,14 +41,24 @@ final class CharactersListViewController: BaseViewController {
     override func setupView() {
         super.setupView()
 
+        definesPresentationContext = true
         navigationItem.titleView = UIImageView(image: Asset.imgNavBar.image)
+        navigationItem.searchController = searchController
         view.backgroundColor = .primaryBackground
+
+        searchController.delegate = self
+        searchController.searchBar.delegate = self
+        searchController.searchBar.tintColor = .marvelRed
+        searchController.searchBar.placeholder = L10n.CharactersList.searchPlaceholder
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.barStyle = .black
  
-        tableView.register(cellType: CharacterListTableViewCell.self)
         tableView.dataSource = dataSource
         tableView.delegate = self
+        tableView.register(cellType: CharacterListTableViewCell.self)
         tableView.rowHeight = UIScreen.main.bounds.width
         tableView.backgroundColor = view.backgroundColor
+        tableView.keyboardDismissMode = .interactive
         tableView.separatorStyle = .none
         view.addSubview(tableView)
     }
@@ -77,28 +87,10 @@ final class CharactersListViewController: BaseViewController {
     // MARK: - Private Methods
 
     private func handleViewState(_ state: ViewState) {
-        footerActivityIndicatorView?.removeFromSuperview()
-        tableView.tableFooterView = nil
-        
-        switch state {
-        case .content:
+        tableView.setState(state)
+
+        if state == .content {
             dataSource.apply(viewModel.outputs.dataSourceSnapshot, animatingDifferences: true)
-            tableView.tableFooterView = nil
-        case .loading(let loadingType):
-            switch loadingType {
-            case .normal:
-                // TODO: - handle normal loading type
-                break
-            case .nextPage:
-                footerActivityIndicatorView = FooterActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: tableView.frame.width, height: .padding6x))
-                tableView.tableFooterView = footerActivityIndicatorView
-            }
-        case .empty:
-            // TODO: - Handle empty state
-            break
-        case .error:
-            // TODO: - Handle error
-            break
         }
     }
 }
@@ -127,4 +119,16 @@ extension CharactersListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+}
+
+// MARK: - UISearchControllerDelegate
+
+extension CharactersListViewController: UISearchControllerDelegate {
+    
+}
+
+// MARK: - UISearchBarDelegate
+
+extension CharactersListViewController: UISearchBarDelegate {
+    
 }

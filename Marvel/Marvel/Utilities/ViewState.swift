@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 enum ViewState {
 
@@ -49,5 +50,36 @@ extension ViewState: Equatable {
         default:
             return false
         }
+    }
+}
+
+// MARK: - BackgroundView + FooterView
+
+extension ViewState {
+    var backgroundView: UIView? {
+        switch self {
+        case .loading(let loadingType):
+            switch loadingType {
+            case .normal:
+                return LoadingView()
+            case .nextPage:
+                return LoadingView()
+            }
+        case .content:
+            return nil
+        case .empty(let message):
+            return nil
+        case .error(let message):
+            return nil
+        }
+
+    }
+
+    var footerView: UIView? {
+        guard case let .loading(loadingType) = self, loadingType == .nextPage else {
+            return nil
+        }
+
+        return LoadingView()
     }
 }

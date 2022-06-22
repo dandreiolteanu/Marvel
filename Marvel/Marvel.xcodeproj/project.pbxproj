@@ -66,8 +66,10 @@
 		FA5A451E2863348300931EDC /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */; };
 		FA5A45212863378200931EDC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45202863378200931EDC /* GradientView.swift */; };
 		FA5A45232863391F00931EDC /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45222863391F00931EDC /* ViewState.swift */; };
-		FA5A452528633AC400931EDC /* LoadingHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A452428633AC400931EDC /* LoadingHeaderReusableView.swift */; };
 		FAC784312863693F00ED372D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784302863693F00ED372D /* Environment.swift */; };
+		FAC784332863A36E00ED372D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784322863A36E00ED372D /* LoadingView.swift */; };
+		FAC784352863A3E200ED372D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784342863A3E200ED372D /* UITableView+Extensions.swift */; };
+		FAC784372863A3EA00ED372D /* UICollectionView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784362863A3EA00ED372D /* UICollectionView+Extensions.swift */; };
 		FAF8D6502862488400C8CD29 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D64F2862488400C8CD29 /* Typealiases.swift */; };
 		FAF8D65528624AEB00C8CD29 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = FAF8D65428624AEB00C8CD29 /* Moya */; };
 		FAF8D65828624B1700C8CD29 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65728624B1700C8CD29 /* NetworkProvider.swift */; };
@@ -162,8 +164,10 @@
 		FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
 		FA5A45202863378200931EDC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA5A45222863391F00931EDC /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
-		FA5A452428633AC400931EDC /* LoadingHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingHeaderReusableView.swift; sourceTree = "<group>"; };
 		FAC784302863693F00ED372D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
+		FAC784322863A36E00ED372D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		FAC784342863A3E200ED372D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
+		FAC784362863A3EA00ED372D /* UICollectionView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extensions.swift"; sourceTree = "<group>"; };
 		FAF8D64F2862488400C8CD29 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		FAF8D65728624B1700C8CD29 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
 		FAF8D65928624D5900C8CD29 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
@@ -340,10 +344,12 @@
 			isa = PBXGroup;
 			children = (
 				FAF8D65F2862532B00C8CD29 /* Encodable+Extensions.swift */,
+				FA5A450D28632EA400931EDC /* SnapKit+Extensions.swift */,
 				FAF8D661286253BA00C8CD29 /* String+Extensions.swift */,
+				FAC784362863A3EA00ED372D /* UICollectionView+Extensions.swift */,
 				FA5A44FF2863292A00931EDC /* UIImageView+Extensions.swift */,
 				FA109F612862205C005E1C94 /* UINavigationController+Extensions.swift */,
-				FA5A450D28632EA400931EDC /* SnapKit+Extensions.swift */,
+				FAC784342863A3E200ED372D /* UITableView+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -521,7 +527,7 @@
 			isa = PBXGroup;
 			children = (
 				FA5A45202863378200931EDC /* GradientView.swift */,
-				FA5A452428633AC400931EDC /* LoadingHeaderReusableView.swift */,
+				FAC784322863A36E00ED372D /* LoadingView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -818,6 +824,7 @@
 				FA5A44FC28631E2E00931EDC /* MarvelPaginatedResponse.swift in Sources */,
 				FA5A450828632A1800931EDC /* UICollectionView+Reusable.swift in Sources */,
 				FA5A45182863307B00931EDC /* ShadowDecorator.swift in Sources */,
+				FAC784332863A36E00ED372D /* LoadingView.swift in Sources */,
 				FAF8D6642862542300C8CD29 /* CharacterParameters.swift in Sources */,
 				FA5A45192863307B00931EDC /* BorderDecorator.swift in Sources */,
 				FA5A44ED286309AD00931EDC /* Colors.swift in Sources */,
@@ -839,7 +846,7 @@
 				FA5A45232863391F00931EDC /* ViewState.swift in Sources */,
 				FA5A45162863307B00931EDC /* AppStyle.swift in Sources */,
 				FA5A44F4286316D000931EDC /* CharactersListFlowController.swift in Sources */,
-				FA5A452528633AC400931EDC /* LoadingHeaderReusableView.swift in Sources */,
+				FAC784352863A3E200ED372D /* UITableView+Extensions.swift in Sources */,
 				FA5A45172863307B00931EDC /* CornerRadiusDecorator.swift in Sources */,
 				FA5A44F72863170300931EDC /* CharactersListViewController.swift in Sources */,
 				FA109F6028621E28005E1C94 /* FlowController.swift in Sources */,
@@ -852,6 +859,7 @@
 				FAF8D6602862532B00C8CD29 /* Encodable+Extensions.swift in Sources */,
 				FA109F622862205C005E1C94 /* UINavigationController+Extensions.swift in Sources */,
 				FAF8D662286253BA00C8CD29 /* String+Extensions.swift in Sources */,
+				FAC784372863A3EA00ED372D /* UICollectionView+Extensions.swift in Sources */,
 				FA109F9928623446005E1C94 /* SplashScreenViewModel.swift in Sources */,
 				FA109F742862296B005E1C94 /* TabBarFlowController.swift in Sources */,
 				FA109F662862220F005E1C94 /* BaseViewController.swift in Sources */,
