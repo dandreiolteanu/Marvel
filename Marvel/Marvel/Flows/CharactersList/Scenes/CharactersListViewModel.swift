@@ -7,6 +7,7 @@
 
 import Foundation
 import Combine
+import Moya
 
 protocol CharactersListFlowDelegate: AnyObject {
     func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter)
@@ -16,6 +17,7 @@ protocol CharactersListViewModelInputs {
     func viewLoaded()
     func loadNextPage()
     func didSelectRow(at indexPath: IndexPath)
+    func updateSearchQuery(with query: String?)
 }
 
 protocol CharactersListViewModelOutputs {
@@ -58,11 +60,23 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
 
     private let charactersService: CharactersService
 
-    private var marvelCharacters = [MarvelCharacter]()
     private let _viewState = CurrentValueSubject<ViewState, Never>(.loading)
+    private var searchQuery: String?
     private var hasMorePages = true
     private var nextOffset = 0
-    private var limit = 10
+    private let limit = 10
+
+    private var marvelCharacters = [MarvelCharacter]() {
+        didSet {
+            dataSourceSnapshot = makeSnapshot(from: marvelCharacters)
+        }
+    }
+
+    private var loadTask: Moya.Cancellable? {
+        willSet {
+            loadTask?.cancel()
+        }
+    }
 
     // MARK: - Init
 
@@ -73,36 +87,54 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
     // MARK: - Public Methods
 
     func viewLoaded() {
-        loadData(loadingType: .normal)
+        loadData(loadingType: .normal, query: nil)
     }
 
     func loadNextPage() {
         guard hasMorePages else { return }
 
-        loadData(loadingType: .nextPage)
+        loadData(loadingType: .nextPage, query: searchQuery)
     }
 
     func didSelectRow(at indexPath: IndexPath) {
         flowDelegate?.shouldShowCharacterDetails(on: self, marvelCharacter: marvelCharacters[indexPath.row])
     }
 
+    func updateSearchQuery(with query: String?) {
+        guard query?.nilIfEmpty != searchQuery?.nilIfEmpty else { return }
+    
+        searchQuery = query
+        hasMorePages = true
+        nextOffset = 0
+
+        loadData(loadingType: .normal, query: searchQuery)
+    }
+
     // MARK: - Private Methods
 
-    private func loadData(loadingType: ViewState.LoadingType) {
+    private func loadData(loadingType: ViewState.LoadingType, query: String?) {
         _viewState.send(.loading(loadingType))
 
-        charactersService.getCharacters(offset: nextOffset, limit: limit) { [weak self] result in
+        loadTask = charactersService.getCharacters(offset: nextOffset, limit: limit, query: query) { [weak self] result in
             guard let self = self else { return }
-
+            
             switch result {
             case .success(let paginated):
                 self.hasMorePages = paginated.hasMorePages
                 self.nextOffset = paginated.nextOffset
-                self.marvelCharacters += paginated.results
-                self.dataSourceSnapshot = self.makeSnapshot(from: self.marvelCharacters)
 
+                if paginated.offset == 0 {
+                    self.marvelCharacters = paginated.results
+                } else {
+                    self.marvelCharacters += paginated.results
+                }
+                
                 self._viewState.send(self.marvelCharacters.isEmpty ? .empty : .content)
             case .failure(let error):
+                guard !error.isCancel else { return }
+
+                self.marvelCharacters.removeAll()
+
                 self._viewState.send(.error(error.localizedDescription))
             }
         }

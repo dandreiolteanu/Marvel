@@ -46,11 +46,11 @@ final class CharactersListViewController: BaseViewController {
         navigationItem.searchController = searchController
         view.backgroundColor = .primaryBackground
 
-        searchController.delegate = self
+        searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = .marvelRed
         searchController.searchBar.placeholder = L10n.CharactersList.searchPlaceholder
-        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.returnKeyType = .done
         searchController.searchBar.barStyle = .black
  
         tableView.dataSource = dataSource
@@ -89,8 +89,11 @@ final class CharactersListViewController: BaseViewController {
     private func handleViewState(_ state: ViewState) {
         tableView.setState(state)
 
-        if state == .content {
+        switch state {
+        case .content, .empty, .error:
             dataSource.apply(viewModel.outputs.dataSourceSnapshot, animatingDifferences: true)
+        default:
+            break
         }
     }
 }
@@ -121,14 +124,18 @@ extension CharactersListViewController: UITableViewDelegate {
     }
 }
 
-// MARK: - UISearchControllerDelegate
-
-extension CharactersListViewController: UISearchControllerDelegate {
-    
-}
-
 // MARK: - UISearchBarDelegate
 
 extension CharactersListViewController: UISearchBarDelegate {
-    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.inputs.updateSearchQuery(with: searchText)
+    }
+
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
+    }
+
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        viewModel.inputs.updateSearchQuery(with: nil)
+    }
 }

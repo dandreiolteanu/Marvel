@@ -72,7 +72,6 @@ extension ViewState {
         case .error(let message):
             return nil
         }
-
     }
 
     var footerView: UIView? {

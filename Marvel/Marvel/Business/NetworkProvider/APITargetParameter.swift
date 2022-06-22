@@ -9,19 +9,21 @@ import Foundation
 import CryptoSwift
 
 struct APITargetParameter<P: Encodable> {
+
+    // MARK: - Private Properties
+
     private let parameters: P
     private let timestamp: String
     private let hash: String
     private let apiKey: String
 
-    init(_ parameters: P,
-         timestamp: String = "\(Date().timeIntervalSince1970)",
-         publicKey: String = APITarget.publicKey,
-         privateKey: String = APITarget.privateKey) {
+    // MARK: - Init
+
+    init(_ parameters: P) {
         self.parameters = parameters
-        self.timestamp = timestamp
-        self.hash = "\(timestamp)\(privateKey)\(publicKey)".md5()
-        self.apiKey = publicKey
+        self.timestamp = "\(Date().timeIntervalSince1970)"
+        self.hash = "\(timestamp)\(APITarget.privateKey)\(APITarget.publicKey)".md5()
+        self.apiKey = APITarget.publicKey
     }
 }
 
