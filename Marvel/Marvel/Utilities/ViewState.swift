@@ -63,14 +63,16 @@ extension ViewState {
             case .normal:
                 return LoadingView()
             case .nextPage:
-                return LoadingView()
+                return nil
             }
         case .content:
             return nil
         case .empty(let message):
-            return nil
+            return IconMessageLabelView(message: message ?? L10n.Reusable.emptyContent,
+                                        icon: Asset.imgNavBar.image)
         case .error(let message):
-            return nil
+            return IconMessageLabelView(message: message ?? L10n.Reusable.errorContent,
+                                        icon: Asset.imgNavBar.image)
         }
     }
 

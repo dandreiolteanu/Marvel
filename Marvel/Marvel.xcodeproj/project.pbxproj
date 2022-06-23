@@ -66,6 +66,7 @@
 		FA5A451E2863348300931EDC /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */; };
 		FA5A45212863378200931EDC /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45202863378200931EDC /* GradientView.swift */; };
 		FA5A45232863391F00931EDC /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45222863391F00931EDC /* ViewState.swift */; };
+		FA8AAECF2864582E0027AB3C /* IconMessageLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAECE2864582E0027AB3C /* IconMessageLabelView.swift */; };
 		FAC784312863693F00ED372D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784302863693F00ED372D /* Environment.swift */; };
 		FAC784332863A36E00ED372D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784322863A36E00ED372D /* LoadingView.swift */; };
 		FAC784352863A3E200ED372D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784342863A3E200ED372D /* UITableView+Extensions.swift */; };
@@ -165,6 +166,7 @@
 		FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
 		FA5A45202863378200931EDC /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		FA5A45222863391F00931EDC /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		FA8AAECE2864582E0027AB3C /* IconMessageLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IconMessageLabelView.swift; sourceTree = "<group>"; };
 		FAC784302863693F00ED372D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FAC784322863A36E00ED372D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FAC784342863A3E200ED372D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -529,6 +531,7 @@
 		FA5A452628633AC900931EDC /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				FA8AAECE2864582E0027AB3C /* IconMessageLabelView.swift */,
 				FA5A45202863378200931EDC /* GradientView.swift */,
 				FAC784322863A36E00ED372D /* LoadingView.swift */,
 			);
@@ -824,6 +827,7 @@
 				FA3948D42862FE6B00D3DDF2 /* MarvelResponse.swift in Sources */,
 				FA3948D82862FFFE00D3DDF2 /* Thumbnail.swift in Sources */,
 				FA109F6428622098005E1C94 /* NavigationFlowController.swift in Sources */,
+				FA8AAECF2864582E0027AB3C /* IconMessageLabelView.swift in Sources */,
 				FA5A44FC28631E2E00931EDC /* MarvelPaginatedResponse.swift in Sources */,
 				FA5A450828632A1800931EDC /* UICollectionView+Reusable.swift in Sources */,
 				FA5A45182863307B00931EDC /* ShadowDecorator.swift in Sources */,

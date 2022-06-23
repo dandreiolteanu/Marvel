@@ -6,6 +6,11 @@
   
 */
 
+// Reusable
+
+"Reusable.emptyContent" = "No superheroes found.";
+"Reusable.errorContent" = "We've encountered an error. Please try again!";
+
 // CharactersList
 
 "CharactersList.searchPlaceholder" = "Search the next avenger";

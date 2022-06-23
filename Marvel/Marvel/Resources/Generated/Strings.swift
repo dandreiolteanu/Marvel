@@ -15,6 +15,13 @@ internal enum L10n {
     /// Search the next avenger
     internal static let searchPlaceholder = L10n.tr("Localizable", "CharactersList.searchPlaceholder")
   }
+
+  internal enum Reusable {
+    /// No superheroes found.
+    internal static let emptyContent = L10n.tr("Localizable", "Reusable.emptyContent")
+    /// We've encountered an error. Please try again!
+    internal static let errorContent = L10n.tr("Localizable", "Reusable.errorContent")
+  }
 }
 // swiftlint:enable explicit_type_interface function_parameter_count identifier_name line_length
 // swiftlint:enable nesting type_body_length type_name vertical_whitespace_opening_braces
