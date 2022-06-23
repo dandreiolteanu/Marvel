@@ -20,6 +20,7 @@ final class CharactersListFlowController: NavigationFlowController {
     // MARK: - Private Properties
 
     private let appCore: AppCore
+    private var transitionDelegate: UIViewControllerTransitioningDelegate?
 
     // MARK: - Init
 
@@ -54,7 +55,7 @@ final class CharactersListFlowController: NavigationFlowController {
             return viewModel
         }())
         
-        viewController.modalPresentationStyle = .overFullScreen
+        viewController.modalPresentationStyle = .custom
 
         return viewController
     }
@@ -64,7 +65,11 @@ final class CharactersListFlowController: NavigationFlowController {
 
 extension CharactersListFlowController: CharactersListFlowDelegate {
     func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter) {
-        navigationController?.present(makeCharacterDetailsViewController(marvelCharacter: marvelCharacter), animated: true)
+        let viewController = makeCharacterDetailsViewController(marvelCharacter: marvelCharacter)
+        transitionDelegate = BlurTransitionAnimator()
+        viewController.transitioningDelegate = transitionDelegate
+
+        mainViewController?.present(viewController, animated: true)
     }
 }
 

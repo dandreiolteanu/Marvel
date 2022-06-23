@@ -37,7 +37,9 @@ final class LoadingView: UIView {
         addSubview(spinner)
 
         spinner.snp.makeConstraints {
-            $0.center.equalToSuperview().insetBy(.padding4x)
+            $0.top.bottom.equalToSuperview().insetBy(.padding2x)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(CGFloat.padding6x)
         }
     }
 }

@@ -76,6 +76,8 @@
 		FA8AAEE828649BD90027AB3C /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAEE728649BD90027AB3C /* TitleCollectionReusableView.swift */; };
 		FAAF117A2864BB3E00142256 /* CharacterDetailsEasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */; };
 		FAAF117C2864C3D400142256 /* EasterEggService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF117B2864C3D400142256 /* EasterEggService.swift */; };
+		FAAF11802864D68700142256 /* BlurTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF117F2864D68700142256 /* BlurTransitionAnimator.swift */; };
+		FAAF11822864D6D300142256 /* BlurPresentationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF11812864D6D300142256 /* BlurPresentationController.swift */; };
 		FAC784312863693F00ED372D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784302863693F00ED372D /* Environment.swift */; };
 		FAC784332863A36E00ED372D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784322863A36E00ED372D /* LoadingView.swift */; };
 		FAC784352863A3E200ED372D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784342863A3E200ED372D /* UITableView+Extensions.swift */; };
@@ -190,6 +192,8 @@
 		FA8AAEE728649BD90027AB3C /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
 		FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsEasterEgg.swift; sourceTree = "<group>"; };
 		FAAF117B2864C3D400142256 /* EasterEggService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggService.swift; sourceTree = "<group>"; };
+		FAAF117F2864D68700142256 /* BlurTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurTransitionAnimator.swift; sourceTree = "<group>"; };
+		FAAF11812864D6D300142256 /* BlurPresentationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurPresentationController.swift; sourceTree = "<group>"; };
 		FAC784302863693F00ED372D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FAC784322863A36E00ED372D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FAC784342863A3E200ED372D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -368,6 +372,7 @@
 				FA109F6D28622736005E1C94 /* Protocols */,
 				FA5A451F2863377500931EDC /* Reusable */,
 				FA5A450F2863305F00931EDC /* Style */,
+				FAAF117D2864D65100142256 /* Transitions */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -648,6 +653,23 @@
 				FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */,
 			);
 			path = EasterEgg;
+			sourceTree = "<group>";
+		};
+		FAAF117D2864D65100142256 /* Transitions */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF117E2864D66100142256 /* BlurTransition */,
+			);
+			path = Transitions;
+			sourceTree = "<group>";
+		};
+		FAAF117E2864D66100142256 /* BlurTransition */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF117F2864D68700142256 /* BlurTransitionAnimator.swift */,
+				FAAF11812864D6D300142256 /* BlurPresentationController.swift */,
+			);
+			path = BlurTransition;
 			sourceTree = "<group>";
 		};
 		FAF8D65628624AF800C8CD29 /* NetworkProvider */ = {
@@ -937,6 +959,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAAF11822864D6D300142256 /* BlurPresentationController.swift in Sources */,
 				FA5A451E2863348300931EDC /* CharacterListCellViewModel.swift in Sources */,
 				FA109F6828622418005E1C94 /* KeyboardPresenting.swift in Sources */,
 				FA109F8828623006005E1C94 /* Assets.swift in Sources */,
@@ -970,6 +993,7 @@
 				FA5A4503286329BF00931EDC /* Reusable.swift in Sources */,
 				FA5A451C2863320100931EDC /* SelectionAnimating.swift in Sources */,
 				FAC784312863693F00ED372D /* Environment.swift in Sources */,
+				FAAF11802864D68700142256 /* BlurTransitionAnimator.swift in Sources */,
 				FAFBDA8F2864A61D006C02BC /* CharacterComicCellViewModel.swift in Sources */,
 				FA109F7728622AC1005E1C94 /* RootFlowController.swift in Sources */,
 				FA109F942862327C005E1C94 /* SplashScreenFlowController.swift in Sources */,

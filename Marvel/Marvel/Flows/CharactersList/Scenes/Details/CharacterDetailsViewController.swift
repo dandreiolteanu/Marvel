@@ -50,7 +50,7 @@ final class CharacterDetailsViewController: BaseViewController {
     override func setupView() {
         super.setupView()
 
-        view.backgroundColor = .primaryBackground
+        view.backgroundColor = .primaryBackground.withAlphaComponent(0.5)
  
         collectionView.dataSource = dataSource
         collectionView.delegate = self
