@@ -17,7 +17,7 @@ final class LoadingView: UIView {
     // MARK: - Init
 
     init() {
-        super.init(frame: .zero)
+        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: .padding6x))
 
         commonInit()
     }
@@ -37,9 +37,7 @@ final class LoadingView: UIView {
         addSubview(spinner)
 
         spinner.snp.makeConstraints {
-            $0.top.bottom.equalToSuperview().insetBy(.padding2x)
-            $0.centerX.equalToSuperview()
-            $0.height.equalTo(CGFloat.padding6x)
+            $0.center.equalToSuperview()
         }
     }
 }
