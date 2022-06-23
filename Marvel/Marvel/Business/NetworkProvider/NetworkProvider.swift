@@ -39,6 +39,8 @@ struct NetworkProvider<Target: TargetType> {
                     completion(.failure(error))
                 }
             case .failure(let error):
+                guard !error.isCancel else { return }
+
                 completion(.failure(error))
             }
         }

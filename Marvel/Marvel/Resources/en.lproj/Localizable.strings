@@ -13,4 +13,9 @@
 
 // CharactersList
 
-"CharactersList.searchPlaceholder" = "Search the next avenger";
+"Characters.emptyNamePlaceholder" = "This superhero is nameless";
+"Characters.personalInformationSectionTitle" = "Character information";
+"Characters.emptyDescriptionPlaceholder" = "This superhero has no description, I think he was not an Avenger.";
+"Characters.searchPlaceholder" = "Search the next avenger";
+"Characters.comicsSectionTitle" = "Comics";
+"Characters.emptyComicTitlePlaceholder" = "Comic name not available.";

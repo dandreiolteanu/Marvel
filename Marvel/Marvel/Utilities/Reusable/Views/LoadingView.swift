@@ -6,28 +6,38 @@
 //
 
 import UIKit
+import SnapKit
 
-final class LoadingView: UIActivityIndicatorView {
+final class LoadingView: UIView {
+
+    // MARK: - Private Properties
+
+    private let spinner = UIActivityIndicatorView()
 
     // MARK: - Init
 
     init() {
-        super.init(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: .padding6x))
+        super.init(frame: .zero)
 
         commonInit()
     }
     
-    required init(coder: NSCoder) {
+    required init?(coder: NSCoder) {
         super.init(coder: coder)
-
-        commonInit()
     }
     
     // MARK: - Private Methods
 
     private func commonInit() {
-        isHidden = false
-        startAnimating()
-        color = .white
+        backgroundColor = .clear
+
+        spinner.isHidden = false
+        spinner.startAnimating()
+        spinner.color = .white
+        addSubview(spinner)
+
+        spinner.snp.makeConstraints {
+            $0.center.equalToSuperview().insetBy(.padding4x)
+        }
     }
 }

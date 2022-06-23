@@ -14,6 +14,7 @@ enum APITarget {
     // MARK: - Cases
 
     case characters(CharacterParameters)
+    case characterComics(MarvelCharacter.ID)
 
     // MARK: - Static Properties
 
@@ -33,12 +34,15 @@ extension APITarget: Moya.TargetType {
         switch self {
         case .characters:
             return "/characters"
+        case .characterComics(let characterId):
+            return "/characters/\(characterId)/comics"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .characters:
+        case .characters,
+             .characterComics:
             return .get
         }
     }
@@ -47,6 +51,8 @@ extension APITarget: Moya.TargetType {
         switch self {
         case .characters(let params):
             return .requestParameters(parameters: APITargetParameter(params).toJSON(), encoding: URLEncoding.default)
+        case .characterComics:
+            return .requestParameters(parameters: APITargetParameter(EmptyParameters()).toJSON(), encoding: URLEncoding.default)
         }
     }
     

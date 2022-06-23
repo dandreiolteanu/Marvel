@@ -49,7 +49,7 @@ final class CharactersListViewController: BaseViewController {
         searchController.obscuresBackgroundDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = .marvelRed
-        searchController.searchBar.placeholder = L10n.CharactersList.searchPlaceholder
+        searchController.searchBar.placeholder = L10n.Characters.searchPlaceholder
         searchController.searchBar.returnKeyType = .done
         searchController.searchBar.barStyle = .black
  
@@ -121,6 +121,8 @@ extension CharactersListViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+
+        viewModel.inputs.didSelectRow(at: indexPath)
     }
 }
 

@@ -11,9 +11,19 @@ import Foundation
 // swiftlint:disable nesting type_body_length type_name vertical_whitespace_opening_braces
 internal enum L10n {
 
-  internal enum CharactersList {
+  internal enum Characters {
+    /// Comics
+    internal static let comicsSectionTitle = L10n.tr("Localizable", "Characters.comicsSectionTitle")
+    /// Comic name not available.
+    internal static let emptyComicTitlePlaceholder = L10n.tr("Localizable", "Characters.emptyComicTitlePlaceholder")
+    /// This superhero has no description, I think he was not an Avenger.
+    internal static let emptyDescriptionPlaceholder = L10n.tr("Localizable", "Characters.emptyDescriptionPlaceholder")
+    /// This superhero is nameless
+    internal static let emptyNamePlaceholder = L10n.tr("Localizable", "Characters.emptyNamePlaceholder")
+    /// Character information
+    internal static let personalInformationSectionTitle = L10n.tr("Localizable", "Characters.personalInformationSectionTitle")
     /// Search the next avenger
-    internal static let searchPlaceholder = L10n.tr("Localizable", "CharactersList.searchPlaceholder")
+    internal static let searchPlaceholder = L10n.tr("Localizable", "Characters.searchPlaceholder")
   }
 
   internal enum Reusable {

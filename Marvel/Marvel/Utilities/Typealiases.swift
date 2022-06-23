@@ -7,7 +7,10 @@
 
 import UIKit
 
-typealias CharactersListDiffableDataSource = UITableViewDiffableDataSource<CharactersListViewModelImpl.Section, CharacterListCellViewModel>
-typealias CharactersListDiffableSnapshot = NSDiffableDataSourceSnapshot<CharactersListViewModelImpl.Section, CharacterListCellViewModel>
+typealias CharactersListDiffableDataSource = UITableViewDiffableDataSource<CharactersListSection, CharactersListSection.Item>
+typealias CharactersListDiffableSnapshot = NSDiffableDataSourceSnapshot<CharactersListSection, CharactersListSection.Item>
+
+typealias CharacterDetailsDiffableDataSource = UICollectionViewDiffableDataSource<CharacterDetailsSection, CharacterDetailsSection.Item>
+typealias CharacterDetailsDiffableSnapshot = NSDiffableDataSourceSnapshot<CharacterDetailsSection, CharacterDetailsSection.Item>
 
 typealias BoolReturnClosure = () -> Bool

@@ -11,13 +11,18 @@ final class AppCore {
 
     // MARK: - Public Properties
 
-    var characteresService: CharactersService
+    var characterComicsService: CharacterComicsService
+    var charactersService: CharactersService
+
+    // MARK: - Private Properties
+
+    private let networkProvider: NetworkProvider<APITarget>
 
     // MARK: - Init
 
     init() {
-        let networkProvider: NetworkProvider<APITarget> = NetworkProvider<APITarget>()
-
-        self.characteresService = CharactersServiceImpl(networkProvider: networkProvider)
+        self.networkProvider = NetworkProvider<APITarget>()
+        self.characterComicsService = CharacterComicsServiceImpl(networkProvider: networkProvider)
+        self.charactersService = CharactersServiceImpl(networkProvider: networkProvider)
     }
 }

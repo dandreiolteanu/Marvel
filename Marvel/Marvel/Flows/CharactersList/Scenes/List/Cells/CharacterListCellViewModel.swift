@@ -14,10 +14,15 @@ struct CharacterListCellViewModel: Hashable {
     let title: String
     let imageURL: URL?
 
+    // MARK: - Private Properties
+
+    private let id: MarvelCharacter.ID
+
     // MARK: - Init
 
     init(marvelCharacter: MarvelCharacter) {
-        self.title = marvelCharacter.name
-        self.imageURL = marvelCharacter.thumbnail.url
+        self.id = marvelCharacter.id
+        self.title = marvelCharacter.name ?? L10n.Characters.emptyNamePlaceholder
+        self.imageURL = marvelCharacter.thumbnail?.url
     }
 }

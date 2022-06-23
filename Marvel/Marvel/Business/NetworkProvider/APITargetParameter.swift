@@ -30,7 +30,6 @@ struct APITargetParameter<P: Encodable> {
 // MARK: - Encodable
 
 extension APITargetParameter: Encodable {
-
     enum CodingKeys: String, CodingKey {
         case parameters
         case timestamp = "ts"

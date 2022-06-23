@@ -37,10 +37,24 @@ final class CharactersListFlowController: NavigationFlowController {
 
     override func firstScreen() -> UIViewController {
         CharactersListViewController(viewModel: {
-            let viewModel = CharactersListViewModelImpl(charactersService: appCore.characteresService)
+            let viewModel = CharactersListViewModelImpl(charactersService: appCore.charactersService)
             viewModel.flowDelegate = self
             return viewModel
         }())
+    }
+
+    // MARK: - Private Methods
+
+    private func makeCharacterDetailsViewController(marvelCharacter: MarvelCharacter) -> UIViewController {
+        let viewController = CharacterDetailsViewController(viewModel: {
+            let viewModel = CharacterDetailsViewModelImpl(marvelCharacter: marvelCharacter, characterComicsService: appCore.characterComicsService)
+            viewModel.flowDelegate = self
+            return viewModel
+        }())
+        
+        viewController.modalPresentationStyle = .overFullScreen
+
+        return viewController
     }
 }
 
@@ -48,6 +62,17 @@ final class CharactersListFlowController: NavigationFlowController {
 
 extension CharactersListFlowController: CharactersListFlowDelegate {
     func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter) {
-        // TODO: - Show character details
+        let characterDetailsViewController = makeCharacterDetailsViewController(marvelCharacter: marvelCharacter)
+        currentPresentedViewController = characterDetailsViewController
+
+        navigationController?.present(characterDetailsViewController, animated: true)
+    }
+}
+
+// MARK: - CharacterDetailsFlowDelegate
+
+extension CharactersListFlowController: CharacterDetailsFlowDelegate {
+    func didPressClose(on viewModel: CharacterDetailsViewModel) {
+        currentPresentedViewController?.dismiss(animated: true)
     }
 }

@@ -32,12 +32,6 @@ protocol CharactersListViewModel {
 
 final class CharactersListViewModelImpl: CharactersListViewModel, CharactersListViewModelInputs, CharactersListViewModelOutputs {
 
-    // MARK: - Section
-
-    enum Section {
-        case main
-    }
-
     // MARK: - FlowDelegate
 
     weak var flowDelegate: CharactersListFlowDelegate?
@@ -131,8 +125,6 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
                 
                 self._viewState.send(self.marvelCharacters.isEmpty ? .empty : .content)
             case .failure(let error):
-                guard !error.isCancel else { return }
-
                 self.marvelCharacters.removeAll()
 
                 self._viewState.send(.error(error.localizedDescription))
@@ -143,7 +135,7 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
     private func makeSnapshot(from marvelCharacters: [MarvelCharacter]) -> CharactersListDiffableSnapshot {
         var snapshot = CharactersListDiffableSnapshot()
         snapshot.appendSections([.main])
-        snapshot.appendItems(marvelCharacters.map(CharacterListCellViewModel.init), toSection: .main)
+        snapshot.appendItems(marvelCharacters.map(CharactersListSection.Item.init), toSection: .main)
 
         return snapshot
     }

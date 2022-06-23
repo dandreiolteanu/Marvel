@@ -13,6 +13,7 @@ class NavigationFlowController: NSObject, FlowController {
 
     var currentPresentedFlow: NavigationFlowController?
     var childFlowControllers: [NavigationFlowController] = []
+    weak var currentPresentedViewController: UIViewController?
     
     var mainViewController: UIViewController? {
         switch flowPresentation {
