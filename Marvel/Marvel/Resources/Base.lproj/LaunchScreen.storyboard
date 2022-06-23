@@ -16,15 +16,25 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_banner" translatesAutoresizingMaskIntoConstraints="NO" id="Afl-ra-eCe">
-                                <rect key="frame" x="109" y="404" width="196" height="88"/>
-                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kfj-LT-Drw">
+                                <rect key="frame" x="31" y="409" width="352" height="78"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_banner" translatesAutoresizingMaskIntoConstraints="NO" id="R05-qU-QjI">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="78"/>
+                                    </imageView>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="img_marvel_studios" translatesAutoresizingMaskIntoConstraints="NO" id="Y8a-Eq-a1e">
+                                        <rect key="frame" x="180" y="0.0" width="172" height="78"/>
+                                    </imageView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" name="primaryBackground"/>
                         <constraints>
-                            <constraint firstItem="Afl-ra-eCe" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="6dI-4l-f3a"/>
-                            <constraint firstItem="Afl-ra-eCe" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YdA-GG-Xlj"/>
+                            <constraint firstItem="kfj-LT-Drw" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="2Nm-eL-Aul"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kfj-LT-Drw" secondAttribute="trailing" constant="24" id="CHZ-h0-rQd"/>
+                            <constraint firstItem="kfj-LT-Drw" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="lMP-f9-chH"/>
+                            <constraint firstItem="kfj-LT-Drw" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="24" id="xHj-J9-zYa"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -34,7 +44,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="img_banner" width="196" height="88"/>
+        <image name="img_banner" width="173" height="78"/>
+        <image name="img_marvel_studios" width="165" height="78"/>
         <namedColor name="primaryBackground">
             <color red="0.10588235294117647" green="0.10588235294117647" blue="0.10588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

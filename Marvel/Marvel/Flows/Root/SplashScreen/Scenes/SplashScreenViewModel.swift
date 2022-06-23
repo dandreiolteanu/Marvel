@@ -44,7 +44,7 @@ final class SplashScreenViewModelImpl: SplashScreenViewModel, SplashScreenViewMo
 
     func viewLoaded() {
         // We simulate that the splash screen takes some time to load data, just so that the animation loops a few times
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.5) { [weak self] in
             guard let self = self else { return }
 
             self.animationShouldRepeat = false

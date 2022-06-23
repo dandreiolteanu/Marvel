@@ -40,13 +40,13 @@ extension ReplicatedViewAnimating where Self: SplashScreenViewController {
                 $0.element.transform = CGAffineTransform(translationX: xOffset(at: $0.offset), y: yOffset(at: $0.offset))
             }
 
-            UIView.animate(withDuration: 0.33) {
+            UIView.animate(withDuration: 0.3) {
                 replicatedViews.forEach {
                     $0.alpha = 1
                 }
             }
 
-            let animationDuration: CGFloat = 0.3
+            let animationDuration: CGFloat = 0.25
             replicatedViews.enumerated().forEach { offset, element in
                 UIView.animate(withDuration: animationDuration,
                                delay: animationDuration * sqrt(Double(offset)),

@@ -6,10 +6,15 @@
 //
 
 import UIKit
+import SnapKit
 
 final class SplashScreenViewController: BaseViewController {
 
     // MARK: - Private Properties
+
+    private let bannerStackView = UIStackView()
+    private let marvelImageView = UIImageView(image: Asset.imgBanner.image)
+    private let studiosImageView = UIImageView(image: Asset.imgMarvelStudios.image)
 
     private let viewModel: SplashScreenViewModel
 
@@ -27,20 +32,51 @@ final class SplashScreenViewController: BaseViewController {
     
     // MARK: - BaseClass Overrides
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        startAnimation()
+    }
+
     override func setupView() {
         super.setupView()
 
         view.backgroundColor = .primaryBackground
+
+        bannerStackView.axis = .horizontal
+        bannerStackView.spacing = .padding
+        bannerStackView.distribution = .fillEqually
+        bannerStackView.addArrangedSubview(marvelImageView)
+        bannerStackView.addArrangedSubview(studiosImageView)
+        view.addSubview(bannerStackView)
+    }
+
+    override func setupConstraints() {
+        super.setupConstraints()
+
+        bannerStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.leading.greaterThanOrEqualToSuperview().insetBy(.padding3x)
+            $0.trailing.lessThanOrEqualToSuperview().insetBy(.padding3x)
+        }
     }
 
     override func setupBindings() {
         super.setupBindings()
 
-        startReplicatingAnimation(until: { [weak self] in
-            self?.viewModel.outputs.animationShouldRepeat == false
-        })
-
         viewModel.inputs.viewLoaded()
+    }
+
+    // MARK: - Private Methods
+
+    private func startAnimation() {
+        UIView.transition(with: view, duration: 0.55, options: .transitionCrossDissolve, animations: {
+            self.studiosImageView.isHidden = true
+        }, completion: { [weak self] _ in
+            self?.startReplicatingAnimation(until: { [weak self] in
+                self?.viewModel.outputs.animationShouldRepeat == false
+            })
+        })
     }
 }
 
@@ -52,11 +88,11 @@ extension SplashScreenViewController: ReplicatedViewAnimating {
     }
 
     func xOffset(at index: Int) -> CGFloat {
-        -12 * CGFloat(index)
+        -14 * CGFloat(index)
     }
 
     func yOffset(at index: Int) -> CGFloat {
-        -12 * CGFloat(index)
+        -14 * CGFloat(index)
     }
 
     func replicatedView(at index: Int) -> UIView {
