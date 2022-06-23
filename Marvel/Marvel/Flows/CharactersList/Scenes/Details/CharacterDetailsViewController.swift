@@ -15,7 +15,7 @@ final class CharacterDetailsViewController: BaseViewController {
 
     private lazy var collectionView: UICollectionView = {
         UICollectionView(frame: .zero, collectionViewLayout: CharacterDetailsCompositionalLayout { [weak self] in
-            return self?.viewModel.outputs.dataSourceSnapshot.sectionIdentifiers[$0].layoutType ?? .gridVertical
+            self?.viewModel.outputs.dataSourceSnapshot.sectionIdentifiers[$0].layoutType ?? .gridVertical
         })
     }()
     private let topGradientView = GradientView()
@@ -115,8 +115,7 @@ final class CharacterDetailsViewController: BaseViewController {
         }
     }
 
-    @objc
-    private func closeButtonTouched() {
+    @objc private func closeButtonTouched() {
         viewModel.inputs.closeTouched()
     }
 }
@@ -146,7 +145,7 @@ extension CharacterDetailsViewController {
         }
 
         dataSource.supplementaryViewProvider = supplementaryViewProvider(collectionView:kind:indexPath:)
-    
+
         return dataSource
     }
 

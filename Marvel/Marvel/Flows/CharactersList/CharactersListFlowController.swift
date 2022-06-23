@@ -64,10 +64,7 @@ final class CharactersListFlowController: NavigationFlowController {
 
 extension CharactersListFlowController: CharactersListFlowDelegate {
     func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter) {
-        let characterDetailsViewController = makeCharacterDetailsViewController(marvelCharacter: marvelCharacter)
-        currentPresentedViewController = characterDetailsViewController
-
-        navigationController?.present(characterDetailsViewController, animated: true)
+        navigationController?.present(makeCharacterDetailsViewController(marvelCharacter: marvelCharacter), animated: true)
     }
 }
 
@@ -75,6 +72,6 @@ extension CharactersListFlowController: CharactersListFlowDelegate {
 
 extension CharactersListFlowController: CharacterDetailsFlowDelegate {
     func didPressClose(on viewModel: CharacterDetailsViewModel) {
-        currentPresentedViewController?.dismiss(animated: true)
+        mainViewController?.presentedViewController?.dismiss(animated: true)
     }
 }

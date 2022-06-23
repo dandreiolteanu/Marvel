@@ -9,23 +9,11 @@ import UIKit
 
 final class CharacterDetailsCompositionalLayout: UICollectionViewCompositionalLayout {
     
-    // MARK: - Initialization
+    // MARK: - Init
     
     init(layoutTypeProvider: @escaping (Int) -> CharacterDetailsSection.LayoutType) {
         super.init(sectionProvider: { index, environment in
             let section = layoutTypeProvider(index).section(environment: environment)
-            section.supplementariesFollowContentInsets = false
-            return section
-        }, configuration: {
-            let configuration = UICollectionViewCompositionalLayoutConfiguration()
-            configuration.interSectionSpacing = .padding2x
-            return configuration
-        }())
-    }
-    
-    init(layoutType: CharacterDetailsSection.LayoutType) {
-        super.init(sectionProvider: { _, environment in
-            let section = layoutType.section(environment: environment)
             section.supplementariesFollowContentInsets = false
             return section
         }, configuration: {
@@ -43,7 +31,6 @@ final class CharacterDetailsCompositionalLayout: UICollectionViewCompositionalLa
 // MARK: - NSCollectionLayoutSection Provider
 
 extension CharacterDetailsSection.LayoutType {
-    
     func section(environment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection {
         switch self {
         case .squareWithFullWidthList:            

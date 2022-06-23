@@ -9,21 +9,9 @@ import UIKit
 
 class BaseViewController: UIViewController {
 
-    // MARK: - Public Properties
-
-    var isBackButtonHidden: Bool = true {
-        didSet {
-            navigationItem.leftBarButtonItem = isBackButtonHidden ? nil : backButtonItem
-        }
-    }
-
     // MARK: - Private Properties
 
     private lazy var keyboardDismissTapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
-    
-    private lazy var backButtonItem: UIBarButtonItem = {
-        return UIBarButtonItem(image: UIImage(named: "Asset.icnBack.image"), style: .plain, target: self, action: #selector(backButtonPressed))
-    }()
     
     // MARK: - Init
 
@@ -41,7 +29,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
 
         signUpForKeyboardNotifications()
-        setupBackButtonIfNeeded()
         setupView()
         setupConstraints()
         setupBindings()
@@ -72,19 +59,6 @@ class BaseViewController: UIViewController {
 
     @objc private func dismissKeyboard() {
         view.endEditing(true)
-    }
-
-    // MARK: - Navigation Bar
-    
-    private func setupBackButtonIfNeeded() {
-        navigationItem.hidesBackButton = true
-
-        guard navigationController?.viewControllers.first !== self else { return }
-        navigationItem.leftBarButtonItem = backButtonItem
-    }
-
-    @objc func backButtonPressed() {
-        navigationController?.popViewController(animated: true)
     }
 
     // MARK: - KeyboardPresenting

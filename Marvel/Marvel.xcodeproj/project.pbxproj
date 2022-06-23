@@ -24,7 +24,6 @@
 		FA109F6428622098005E1C94 /* NavigationFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA109F6328622098005E1C94 /* NavigationFlowController.swift */; };
 		FA109F662862220F005E1C94 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA109F652862220F005E1C94 /* BaseViewController.swift */; };
 		FA109F6828622418005E1C94 /* KeyboardPresenting.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA109F6728622418005E1C94 /* KeyboardPresenting.swift */; };
-		FA109F742862296B005E1C94 /* TabBarFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA109F732862296B005E1C94 /* TabBarFlowController.swift */; };
 		FA109F7728622AC1005E1C94 /* RootFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA109F7628622AC1005E1C94 /* RootFlowController.swift */; };
 		FA109F7D28622D0B005E1C94 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA109F7828622D0B005E1C94 /* Inter-Bold.ttf */; };
 		FA109F7E28622D0B005E1C94 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FA109F7928622D0B005E1C94 /* Inter-Medium.ttf */; };
@@ -139,7 +138,6 @@
 		FA109F6328622098005E1C94 /* NavigationFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationFlowController.swift; sourceTree = "<group>"; };
 		FA109F652862220F005E1C94 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		FA109F6728622418005E1C94 /* KeyboardPresenting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardPresenting.swift; sourceTree = "<group>"; };
-		FA109F732862296B005E1C94 /* TabBarFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarFlowController.swift; sourceTree = "<group>"; };
 		FA109F7628622AC1005E1C94 /* RootFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootFlowController.swift; sourceTree = "<group>"; };
 		FA109F7828622D0B005E1C94 /* Inter-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.ttf"; sourceTree = "<group>"; };
 		FA109F7928622D0B005E1C94 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
@@ -336,7 +334,6 @@
 				FA109F652862220F005E1C94 /* BaseViewController.swift */,
 				FA109F5F28621E28005E1C94 /* FlowController.swift */,
 				FA109F6328622098005E1C94 /* NavigationFlowController.swift */,
-				FA109F732862296B005E1C94 /* TabBarFlowController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -1009,7 +1006,6 @@
 				FAF8D662286253BA00C8CD29 /* String+Extensions.swift in Sources */,
 				FAC784372863A3EA00ED372D /* UICollectionView+Extensions.swift in Sources */,
 				FA109F9928623446005E1C94 /* SplashScreenViewModel.swift in Sources */,
-				FA109F742862296B005E1C94 /* TabBarFlowController.swift in Sources */,
 				FA109F662862220F005E1C94 /* BaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
