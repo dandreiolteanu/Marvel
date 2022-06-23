@@ -7,20 +7,27 @@
 
 import UIKit
 
-public struct ShadowDecorator: ViewDecorator {
+struct ShadowDecorator: ViewDecorator {
+
+    // MARK: - Private Properties
+
     private let radius: CGFloat
     private let color: UIColor?
     private let opacity: Float
     private let offset: CGSize?
 
-    public init(radius: CGFloat = 4, color: UIColor? = .black, opacity: Float = 0.15, offset: CGSize = CGSize(width: 0, height: 1)) {
+    // MARK: - Public Properties
+
+    init(radius: CGFloat = 4, color: UIColor? = .black, opacity: Float = 0.15, offset: CGSize = CGSize(width: 0, height: 1)) {
         self.radius = radius
         self.color = color
         self.opacity = opacity
         self.offset = offset
     }
 
-    public func decorate(view: UIView) {
+    // MARK: - ViewDecorator
+
+    func decorate(view: UIView) {
         view.layer.masksToBounds = false
         view.layer.shadowColor = color?.cgColor
         if let offset = offset {

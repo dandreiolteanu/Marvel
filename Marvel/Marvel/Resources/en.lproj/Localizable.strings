@@ -7,12 +7,10 @@
 */
 
 // Reusable
-
 "Reusable.emptyContent" = "No superheroes found.";
 "Reusable.errorContent" = "We've encountered an error. Please try again!";
 
 // CharactersList
-
 "Characters.emptyNamePlaceholder" = "This superhero is nameless";
 "Characters.personalInformationSectionTitle" = "Character information";
 "Characters.emptyDescriptionPlaceholder" = "This superhero has no description, I think he was not an Avenger.";

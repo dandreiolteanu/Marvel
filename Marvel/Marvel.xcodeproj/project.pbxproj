@@ -59,7 +59,6 @@
 		FA5A45162863307B00931EDC /* AppStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45102863307B00931EDC /* AppStyle.swift */; };
 		FA5A45172863307B00931EDC /* CornerRadiusDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45122863307B00931EDC /* CornerRadiusDecorator.swift */; };
 		FA5A45182863307B00931EDC /* ShadowDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45132863307B00931EDC /* ShadowDecorator.swift */; };
-		FA5A45192863307B00931EDC /* BorderDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45142863307B00931EDC /* BorderDecorator.swift */; };
 		FA5A451A2863307B00931EDC /* ViewDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A45152863307B00931EDC /* ViewDecorator.swift */; };
 		FA5A451C2863320100931EDC /* SelectionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A451B2863320100931EDC /* SelectionAnimating.swift */; };
 		FA5A451E2863348300931EDC /* CharacterListCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */; };
@@ -86,7 +85,6 @@
 		FAF8D6502862488400C8CD29 /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D64F2862488400C8CD29 /* Typealiases.swift */; };
 		FAF8D65528624AEB00C8CD29 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = FAF8D65428624AEB00C8CD29 /* Moya */; };
 		FAF8D65828624B1700C8CD29 /* NetworkProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65728624B1700C8CD29 /* NetworkProvider.swift */; };
-		FAF8D65A28624D5900C8CD29 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65928624D5900C8CD29 /* EmptyResponse.swift */; };
 		FAF8D65C28624E4B00C8CD29 /* APITarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65B28624E4B00C8CD29 /* APITarget.swift */; };
 		FAF8D65E286250E300C8CD29 /* APITargetParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65D286250E300C8CD29 /* APITargetParameter.swift */; };
 		FAF8D6602862532B00C8CD29 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF8D65F2862532B00C8CD29 /* Encodable+Extensions.swift */; };
@@ -175,7 +173,6 @@
 		FA5A45102863307B00931EDC /* AppStyle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppStyle.swift; sourceTree = "<group>"; };
 		FA5A45122863307B00931EDC /* CornerRadiusDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CornerRadiusDecorator.swift; sourceTree = "<group>"; };
 		FA5A45132863307B00931EDC /* ShadowDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShadowDecorator.swift; sourceTree = "<group>"; };
-		FA5A45142863307B00931EDC /* BorderDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BorderDecorator.swift; sourceTree = "<group>"; };
 		FA5A45152863307B00931EDC /* ViewDecorator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewDecorator.swift; sourceTree = "<group>"; };
 		FA5A451B2863320100931EDC /* SelectionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectionAnimating.swift; sourceTree = "<group>"; };
 		FA5A451D2863348300931EDC /* CharacterListCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterListCellViewModel.swift; sourceTree = "<group>"; };
@@ -201,7 +198,6 @@
 		FAC7843E2863C50C00ED372D /* Error+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+Extensions.swift"; sourceTree = "<group>"; };
 		FAF8D64F2862488400C8CD29 /* Typealiases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typealiases.swift; sourceTree = "<group>"; };
 		FAF8D65728624B1700C8CD29 /* NetworkProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkProvider.swift; sourceTree = "<group>"; };
-		FAF8D65928624D5900C8CD29 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
 		FAF8D65B28624E4B00C8CD29 /* APITarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITarget.swift; sourceTree = "<group>"; };
 		FAF8D65D286250E300C8CD29 /* APITargetParameter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APITargetParameter.swift; sourceTree = "<group>"; };
 		FAF8D65F2862532B00C8CD29 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
@@ -547,7 +543,6 @@
 		FA5A45112863307B00931EDC /* Decorator */ = {
 			isa = PBXGroup;
 			children = (
-				FA5A45142863307B00931EDC /* BorderDecorator.swift */,
 				FA5A45122863307B00931EDC /* CornerRadiusDecorator.swift */,
 				FA5A45132863307B00931EDC /* ShadowDecorator.swift */,
 				FA5A45152863307B00931EDC /* ViewDecorator.swift */,
@@ -677,7 +672,6 @@
 			children = (
 				FAF8D65B28624E4B00C8CD29 /* APITarget.swift */,
 				FAF8D65D286250E300C8CD29 /* APITargetParameter.swift */,
-				FAF8D65928624D5900C8CD29 /* EmptyResponse.swift */,
 				FAF8D65728624B1700C8CD29 /* NetworkProvider.swift */,
 			);
 			path = NetworkProvider;
@@ -986,7 +980,6 @@
 				FA5A45182863307B00931EDC /* ShadowDecorator.swift in Sources */,
 				FAC784332863A36E00ED372D /* LoadingView.swift in Sources */,
 				FAF8D6642862542300C8CD29 /* CharacterParameters.swift in Sources */,
-				FA5A45192863307B00931EDC /* BorderDecorator.swift in Sources */,
 				FA5A44ED286309AD00931EDC /* Colors.swift in Sources */,
 				FA5A450C28632E4C00931EDC /* Constants.swift in Sources */,
 				FAC7843F2863C50C00ED372D /* Error+Extensions.swift in Sources */,
@@ -1024,7 +1017,6 @@
 				FA109F7F28622D0B005E1C94 /* Font.swift in Sources */,
 				FA5A451A2863307B00931EDC /* ViewDecorator.swift in Sources */,
 				FA8AAED828646F9E0027AB3C /* CharacterDetailsCompositionalLayout.swift in Sources */,
-				FAF8D65A28624D5900C8CD29 /* EmptyResponse.swift in Sources */,
 				FAF8D6602862532B00C8CD29 /* Encodable+Extensions.swift in Sources */,
 				FA109F622862205C005E1C94 /* UINavigationController+Extensions.swift in Sources */,
 				FAF8D662286253BA00C8CD29 /* String+Extensions.swift in Sources */,

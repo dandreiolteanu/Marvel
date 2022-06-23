@@ -8,11 +8,18 @@
 import UIKit
 
 struct CornerRadiusDecorator: ViewDecorator {
-    let radius: CGFloat?
+
+    // MARK: - Private Properties
+
+    private let radius: CGFloat?
+
+    // MARK: - Init
 
     init(radius: CGFloat? = nil) {
         self.radius = radius
     }
+
+    // MARK: - ViewDecorator
 
     func decorate(view: UIView) {
         view.layer.cornerRadius = radius ?? min(view.frame.width, view.frame.height) / 2

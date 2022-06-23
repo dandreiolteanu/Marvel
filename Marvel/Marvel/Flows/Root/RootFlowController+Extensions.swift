@@ -9,13 +9,25 @@ import UIKit
 
 extension RootFlowController {
 
-    // MARK: - Set root
+    // MARK: - Public Properties
 
     var root: UIViewController? {
-        return window?.rootViewController
+        window?.rootViewController
     }
 
-    func setRoot(to viewController: UIViewController?, animated: Bool = false, completion: (() -> Void)? = nil) {
+    // MARK: - Public Methods
+
+    func show(flow: FlowController, animated: Bool = true, completion: (() -> Void)? = nil) {
+        flow.start(customPresentation: { [weak self] flowMainController in
+            self?.setRoot(to: flowMainController, animated: animated) {
+                completion?()
+            }
+        }, animated: animated)
+    }
+    
+    // MARK: - Private Methods
+
+    private func setRoot(to viewController: UIViewController?, animated: Bool = false, completion: (() -> Void)? = nil) {
         guard let viewController = viewController else { return }
 
         guard root != viewController else { return }
@@ -40,15 +52,5 @@ extension RootFlowController {
             changeRoot(to: viewController)
             completion?()
         }
-    }
-
-    // MARK: - Show flows
-
-    func show(flow: FlowController, animated: Bool = true, completion: (() -> Void)? = nil) {
-        flow.start(customPresentation: { [weak self] flowMainController in
-            self?.setRoot(to: flowMainController, animated: animated) {
-                completion?()
-            }
-        }, animated: animated)
     }
 }

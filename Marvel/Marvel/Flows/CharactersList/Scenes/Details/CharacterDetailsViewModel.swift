@@ -53,6 +53,7 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
 
     private let characterComicsService: CharacterComicsService
 
+    private let _viewState = CurrentValueSubject<ViewState, Never>(.content)
     private let marvelCharacter: MarvelCharacter
 
     private var characterComics = [MarvelComic]() {
@@ -60,8 +61,6 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
             dataSourceSnapshot = makeSnapshot(with: marvelCharacter, and: characterComics)
         }
     }
-
-    private let _viewState = CurrentValueSubject<ViewState, Never>(.content)
 
     // MARK: - Init
 

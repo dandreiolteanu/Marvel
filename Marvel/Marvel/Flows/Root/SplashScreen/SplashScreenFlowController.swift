@@ -31,7 +31,6 @@ final class SplashScreenFlowController: NavigationFlowController {
 // MARK: - SplashScreenFlowDelegate
 
 extension SplashScreenFlowController: SplashScreenFlowDelegate {
-
     func shouldGoToNextStep(on viewModel: SplashScreenViewModel) {
         flowDelegate?.didFinish(on: self)
     }

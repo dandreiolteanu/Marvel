@@ -8,9 +8,6 @@
 import UIKit
 
 extension CGFloat {
-    /// 12
-    static let cornerRadius: CGFloat = 12
-
     /// 8
     static let padding: CGFloat = 8
     /// 12
