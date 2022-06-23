@@ -75,6 +75,8 @@
 		FA8AAEE32864959D0027AB3C /* CharacterDetailsHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAEE22864959D0027AB3C /* CharacterDetailsHeaderCollectionViewCell.swift */; };
 		FA8AAEE6286499750027AB3C /* TitleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAEE5286499750027AB3C /* TitleCollectionViewCell.swift */; };
 		FA8AAEE828649BD90027AB3C /* TitleCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8AAEE728649BD90027AB3C /* TitleCollectionReusableView.swift */; };
+		FAAF117A2864BB3E00142256 /* CharacterDetailsEasterEgg.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */; };
+		FAAF117C2864C3D400142256 /* EasterEggService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAAF117B2864C3D400142256 /* EasterEggService.swift */; };
 		FAC784312863693F00ED372D /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784302863693F00ED372D /* Environment.swift */; };
 		FAC784332863A36E00ED372D /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784322863A36E00ED372D /* LoadingView.swift */; };
 		FAC784352863A3E200ED372D /* UITableView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC784342863A3E200ED372D /* UITableView+Extensions.swift */; };
@@ -188,6 +190,8 @@
 		FA8AAEE22864959D0027AB3C /* CharacterDetailsHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA8AAEE5286499750027AB3C /* TitleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionViewCell.swift; sourceTree = "<group>"; };
 		FA8AAEE728649BD90027AB3C /* TitleCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleCollectionReusableView.swift; sourceTree = "<group>"; };
+		FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsEasterEgg.swift; sourceTree = "<group>"; };
+		FAAF117B2864C3D400142256 /* EasterEggService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EasterEggService.swift; sourceTree = "<group>"; };
 		FAC784302863693F00ED372D /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		FAC784322863A36E00ED372D /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		FAC784342863A3E200ED372D /* UITableView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extensions.swift"; sourceTree = "<group>"; };
@@ -362,6 +366,7 @@
 				FAC784302863693F00ED372D /* Environment.swift */,
 				FAF8D64F2862488400C8CD29 /* Typealiases.swift */,
 				FA5A45222863391F00931EDC /* ViewState.swift */,
+				FAAF11782864BB1900142256 /* EasterEgg */,
 				FA109F6C2862272C005E1C94 /* Extensions */,
 				FA109F6D28622736005E1C94 /* Protocols */,
 				FA5A451F2863377500931EDC /* Reusable */,
@@ -504,6 +509,7 @@
 			children = (
 				FAFBDA892864A303006C02BC /* CharacterComicsService.swift */,
 				FA5A44F928631D4B00931EDC /* CharactersService.swift */,
+				FAAF117B2864C3D400142256 /* EasterEggService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -637,6 +643,14 @@
 				FA8AAEE5286499750027AB3C /* TitleCollectionViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		FAAF11782864BB1900142256 /* EasterEgg */ = {
+			isa = PBXGroup;
+			children = (
+				FAAF11792864BB3E00142256 /* CharacterDetailsEasterEgg.swift */,
+			);
+			path = EasterEgg;
 			sourceTree = "<group>";
 		};
 		FAF8D65628624AF800C8CD29 /* NetworkProvider */ = {
@@ -940,8 +954,10 @@
 				FA109F8628623002005E1C94 /* Strings.swift in Sources */,
 				FA3948D42862FE6B00D3DDF2 /* MarvelResponse.swift in Sources */,
 				FA3948D82862FFFE00D3DDF2 /* Thumbnail.swift in Sources */,
+				FAAF117A2864BB3E00142256 /* CharacterDetailsEasterEgg.swift in Sources */,
 				FA109F6428622098005E1C94 /* NavigationFlowController.swift in Sources */,
 				FAFBDA882864A290006C02BC /* MarvelComic.swift in Sources */,
+				FAAF117C2864C3D400142256 /* EasterEggService.swift in Sources */,
 				FA8AAED5286466E90027AB3C /* CharacterDetailsViewModel.swift in Sources */,
 				FA8AAECF2864582E0027AB3C /* IconMessageLabelView.swift in Sources */,
 				FA5A44FC28631E2E00931EDC /* MarvelPaginatedResponse.swift in Sources */,

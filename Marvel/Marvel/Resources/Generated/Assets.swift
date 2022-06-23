@@ -23,6 +23,7 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 internal enum Asset {
   internal static let accentColor = ColorAsset(name: "AccentColor")
   internal static let icnClose = ImageAsset(name: "icn_close")
+  internal static let icnMjolnir = ImageAsset(name: "icn_mjolnir")
   internal static let imgBanner = ImageAsset(name: "img_banner")
   internal static let imgMarvelStudios = ImageAsset(name: "img_marvel_studios")
   internal static let imgNavBar = ImageAsset(name: "img_nav_bar")

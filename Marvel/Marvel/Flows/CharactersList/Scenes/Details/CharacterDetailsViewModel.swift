@@ -20,6 +20,7 @@ protocol CharacterDetailsViewModelInputs {
 protocol CharacterDetailsViewModelOutputs {
     var dataSourceSnapshot: CharacterDetailsDiffableSnapshot { get }
     var viewState: AnyPublisher<ViewState, Never> { get }
+    var hasEasterEgg: Bool { get }
 }
 
 protocol CharacterDetailsViewModel {
@@ -42,6 +43,7 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
     var outputs: CharacterDetailsViewModelOutputs { self }
 
     var dataSourceSnapshot = CharacterDetailsDiffableSnapshot()
+    let hasEasterEgg: Bool
 
     var viewState: AnyPublisher<ViewState, Never> {
         _viewState.eraseToAnyPublisher()
@@ -63,9 +65,10 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
 
     // MARK: - Init
 
-    init(marvelCharacter: MarvelCharacter, characterComicsService: CharacterComicsService) {
+    init(marvelCharacter: MarvelCharacter, characterComicsService: CharacterComicsService, easterEggService: EasterEggService) {
         self.marvelCharacter = marvelCharacter
         self.characterComicsService = characterComicsService
+        self.hasEasterEgg = easterEggService.hasEasterEgg
         self.dataSourceSnapshot = makeSnapshot(with: marvelCharacter, and: characterComics)
     }
 
@@ -104,17 +107,18 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
         var snapshot = CharacterDetailsDiffableSnapshot()
 
         snapshot.appendSections([.header])
-        snapshot.appendItems([.headerItem(CharacterListCellViewModel(marvelCharacter: marvelCharacter))], toSection: .header)
+        snapshot.appendItems([.headerItem(CharacterListCellViewModel(marvelCharacter: marvelCharacter))],
+                             toSection: .header)
 
         snapshot.appendSections([.personalInformation])
-        snapshot.appendItems([.descriptionItem(marvelCharacter.description ?? L10n.Characters.emptyDescriptionPlaceholder)], toSection: .personalInformation)
+        snapshot.appendItems([.descriptionItem(marvelCharacter.description ?? L10n.Characters.emptyDescriptionPlaceholder)],
+                             toSection: .personalInformation)
 
         guard !characterComics.isEmpty else { return snapshot }
 
         snapshot.appendSections([.comics])
-        snapshot.appendItems(characterComics.map {
-            CharacterDetailsSection.Item.comicsItem(CharacterComicCellViewModel(characterComic: $0))
-        })
+        snapshot.appendItems(characterComics.map { CharacterDetailsSection.Item.comicsItem(CharacterComicCellViewModel(characterComic: $0)) },
+                             toSection: .comics)
 
         return snapshot
     }

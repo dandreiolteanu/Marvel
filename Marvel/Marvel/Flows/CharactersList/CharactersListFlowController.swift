@@ -47,7 +47,9 @@ final class CharactersListFlowController: NavigationFlowController {
 
     private func makeCharacterDetailsViewController(marvelCharacter: MarvelCharacter) -> UIViewController {
         let viewController = CharacterDetailsViewController(viewModel: {
-            let viewModel = CharacterDetailsViewModelImpl(marvelCharacter: marvelCharacter, characterComicsService: appCore.characterComicsService)
+            let viewModel = CharacterDetailsViewModelImpl(marvelCharacter: marvelCharacter,
+                                                          characterComicsService: appCore.characterComicsService,
+                                                          easterEggService: ThorCharacterEasterEgg(marvelCharacter: marvelCharacter))
             viewModel.flowDelegate = self
             return viewModel
         }())

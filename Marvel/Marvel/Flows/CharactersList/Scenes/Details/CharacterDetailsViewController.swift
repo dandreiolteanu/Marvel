@@ -39,6 +39,14 @@ final class CharacterDetailsViewController: BaseViewController {
     
     // MARK: - BaseClass Overrides
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        guard viewModel.outputs.hasEasterEgg else { return }
+
+        startEasterEgg()
+    }
+
     override func setupView() {
         super.setupView()
 
