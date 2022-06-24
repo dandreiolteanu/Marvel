@@ -45,8 +45,8 @@ extension ViewState: Equatable {
             return true
         case (.empty(let lhsDescriprion), .empty(let rhsDescriprion)):
             return lhsDescriprion == rhsDescriprion
-        case (.error(let lhsErrorDescription), .error(let rhsErrorDescription)):
-            return lhsErrorDescription == rhsErrorDescription
+        case (.error, .error):
+            return true
         default:
             return false
         }

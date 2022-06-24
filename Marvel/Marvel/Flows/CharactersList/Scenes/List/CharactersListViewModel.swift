@@ -55,10 +55,10 @@ final class CharactersListViewModelImpl: CharactersListViewModel, CharactersList
     private let charactersService: CharactersService
 
     private let _viewState = CurrentValueSubject<ViewState, Never>(.loading)
-    private var searchQuery: String?
-    private var hasMorePages = true
-    private var nextOffset = 0
-    private let limit = 10
+    private(set) var searchQuery: String?
+    private(set) var hasMorePages = true
+    private(set) var nextOffset = 0
+    private(set) var limit = 10
 
     private var marvelCharacters = [MarvelCharacter]() {
         didSet {

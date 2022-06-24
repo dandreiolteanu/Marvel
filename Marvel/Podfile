@@ -14,8 +14,4 @@ target 'Marvel' do
     # Pods for testing
   end
 
-  target 'MarvelUITests' do
-    # Pods for testing
-  end
-
 end
