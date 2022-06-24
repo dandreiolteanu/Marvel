@@ -1,5 +1,9 @@
 # Marvel
 
+| Splash Screen | Search + List + Details | Easter Egg |
+| :-: | :-: | :-: |
+| <img src="READMEAssets/splash.gif"/> | <img src="READMEAssets/search+list+details.gif"/> | <img src="READMEAssets/easter-egg.gif"/> |
+
 ## How to run
 1. Please make sure you have latest **[Xcode](https://apps.apple.com/ro/app/xcode/id497799835?mt=12)** version installed on your Mac
 2. Please make sure you have latest **CocoaPods** version installed on your Mac
