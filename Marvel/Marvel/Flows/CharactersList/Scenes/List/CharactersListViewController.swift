@@ -13,6 +13,7 @@ final class CharactersListViewController: BaseViewController {
 
     // MARK: - Private Properties
 
+    private let navigationItemSpinner = UIActivityIndicatorView()
     private let tableView = UITableView()
     private let searchController = UISearchController(searchResultsController: nil)
 
@@ -43,10 +44,15 @@ final class CharactersListViewController: BaseViewController {
 
         definesPresentationContext = true
         navigationItem.titleView = UIImageView(image: Asset.imgNavBar.image)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: navigationItemSpinner)
         navigationItem.searchController = searchController
         view.backgroundColor = .primaryBackground
 
+        navigationItemSpinner.hidesWhenStopped = true
+        navigationItemSpinner.color = .secondaryLabel
+
         searchController.obscuresBackgroundDuringPresentation = false
+        searchController.hidesNavigationBarDuringPresentation = false
         searchController.searchBar.delegate = self
         searchController.searchBar.tintColor = .marvelRed
         searchController.searchBar.placeholder = L10n.Characters.searchPlaceholder
@@ -88,10 +94,16 @@ final class CharactersListViewController: BaseViewController {
 
     private func handleViewState(_ state: ViewState) {
         tableView.setState(state)
+        navigationItemSpinner.stopAnimating()
 
         switch state {
         case .content, .empty, .error:
             dataSource.apply(viewModel.outputs.dataSourceSnapshot, animatingDifferences: true)
+        case .loading(let loadingType) where loadingType == .normal:
+            guard !viewModel.outputs.dataSourceSnapshot.itemIdentifiers.isEmpty else { return }
+
+            navigationItemSpinner.isHidden = false
+            navigationItemSpinner.startAnimating()
         default:
             break
         }
