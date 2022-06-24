@@ -20,7 +20,7 @@ final class CharactersListViewController: BaseViewController {
     private let viewModel: CharactersListViewModel
     private lazy var dataSource: CharactersListDiffableDataSource = {
         let dataSource = makeDataSource()
-        dataSource.defaultRowAnimation = .top
+        dataSource.defaultRowAnimation = .fade
         return dataSource
     }()
     private var subscriptions = Set<AnyCancellable>()
