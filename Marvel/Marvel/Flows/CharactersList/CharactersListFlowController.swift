@@ -7,20 +7,11 @@
 
 import UIKit
 
-protocol CharactersListFlowControllerDelegate: AnyObject {
-    func didFinish(on flow: SplashScreenFlowController)
-}
-
 final class CharactersListFlowController: NavigationFlowController {
-
-    // MARK: - Public Properties
-
-    weak var flowDelegate: CharactersListFlowControllerDelegate?
 
     // MARK: - Private Properties
 
     private let appCore: AppCore
-    private var transitionDelegate: UIViewControllerTransitioningDelegate?
 
     // MARK: - Init
 
@@ -46,18 +37,8 @@ final class CharactersListFlowController: NavigationFlowController {
 
     // MARK: - Private Methods
 
-    private func makeCharacterDetailsViewController(marvelCharacter: MarvelCharacter) -> UIViewController {
-        let viewController = CharacterDetailsViewController(viewModel: {
-            let viewModel = CharacterDetailsViewModelImpl(marvelCharacter: marvelCharacter,
-                                                          characterComicsService: appCore.characterComicsService,
-                                                          easterEggService: ThorCharacterEasterEgg(marvelCharacter: marvelCharacter))
-            viewModel.flowDelegate = self
-            return viewModel
-        }())
-        
-        viewController.modalPresentationStyle = .custom
-
-        return viewController
+    private func makeCharacterDetailsFlowController(marvelCharacter: MarvelCharacter) -> CharacterDetailsFlowController {
+        CharacterDetailsFlowController(appCore: appCore, marvelCharacter: marvelCharacter, from: self, for: .present)
     }
 }
 
@@ -65,18 +46,28 @@ final class CharactersListFlowController: NavigationFlowController {
 
 extension CharactersListFlowController: CharactersListFlowDelegate {
     func shouldShowCharacterDetails(on viewModel: CharactersListViewModel, marvelCharacter: MarvelCharacter) {
-        let viewController = makeCharacterDetailsViewController(marvelCharacter: marvelCharacter)
-        transitionDelegate = BlurTransitionAnimator()
-        viewController.transitioningDelegate = transitionDelegate
+        let flowController = makeCharacterDetailsFlowController(marvelCharacter: marvelCharacter)
+        flowController.flowDelegate = self
+        flowController.start()
 
-        mainViewController?.present(viewController, animated: true)
+        appendChild(flowController)
     }
 }
 
 // MARK: - CharacterDetailsFlowDelegate
 
-extension CharactersListFlowController: CharacterDetailsFlowDelegate {
-    func didPressClose(on viewModel: CharacterDetailsViewModel) {
+extension CharactersListFlowController: CharacterDetailsFlowControllerDelegate {
+    func didFinish(on flow: CharacterDetailsFlowController) {
+        flow.finish(completion: { [weak self, weak flow] in
+            guard let flow = flow else { return }
+
+            self?.removeChild(flow)
+        })
+    }
+}
+
+extension CharactersListFlowController: ComicDetailsFlowDelegate {
+    func shouldCloseComicDetails() {
         mainViewController?.presentedViewController?.dismiss(animated: true)
     }
 }

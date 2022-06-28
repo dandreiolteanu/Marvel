@@ -52,7 +52,8 @@ class NavigationFlowController: NSObject, FlowController {
         if let parentFlow = parentFlow {
             switch flowPresentation {
             case .present:
-                navigationController = UINavigationController(rootViewController: firstScreen())
+                navigationController = UINavigationController()
+                navigationController?.setViewControllers([firstScreen()], animated: false)
             case .push:
                 if let parentNavFlow = parentFlow as? NavigationFlowController {
                     navigationController = parentNavFlow.navigationController
@@ -65,12 +66,14 @@ class NavigationFlowController: NSObject, FlowController {
         } else {
             switch flowPresentation {
             case .present:
-                navigationController = UINavigationController(rootViewController: firstScreen())
+                navigationController = UINavigationController()
+                navigationController?.setViewControllers([firstScreen()], animated: false)
             case .push:
                 assertionFailure("Need to have a parent flow for a push presentation!")
             case .custom(let shouldCreateNavigationController):
                 if shouldCreateNavigationController {
-                    navigationController = UINavigationController(rootViewController: firstScreen())
+                    navigationController = UINavigationController()
+                    navigationController?.setViewControllers([firstScreen()], animated: false)
                 }
             }
         }

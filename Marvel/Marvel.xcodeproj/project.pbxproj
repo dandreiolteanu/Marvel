@@ -37,6 +37,12 @@
 		FA3948D42862FE6B00D3DDF2 /* MarvelResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3948D32862FE6B00D3DDF2 /* MarvelResponse.swift */; };
 		FA3948D62862FF3C00D3DDF2 /* MarvelCharacter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3948D52862FF3C00D3DDF2 /* MarvelCharacter.swift */; };
 		FA3948D82862FFFE00D3DDF2 /* Thumbnail.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA3948D72862FFFE00D3DDF2 /* Thumbnail.swift */; };
+		FA49CC0B2865CA45004CE1F1 /* ComicDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC0A2865CA45004CE1F1 /* ComicDetailsView.swift */; };
+		FA49CC0D2865CCA7004CE1F1 /* ComicDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC0C2865CCA7004CE1F1 /* ComicDetailsViewModel.swift */; };
+		FA49CC0F2865D123004CE1F1 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC0E2865D123004CE1F1 /* View+Extensions.swift */; };
+		FA49CC112865D449004CE1F1 /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC102865D449004CE1F1 /* UIViewController+Extensions.swift */; };
+		FA49CC142865D5A4004CE1F1 /* SwiftUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC132865D5A4004CE1F1 /* SwiftUIViewController.swift */; };
+		FA49CC172865D664004CE1F1 /* CharacterDetailsFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA49CC162865D664004CE1F1 /* CharacterDetailsFlowController.swift */; };
 		FA5A44ED286309AD00931EDC /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44EC286309AD00931EDC /* Colors.swift */; };
 		FA5A44EF286309E500931EDC /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5A44EE286309E500931EDC /* Colors.xcassets */; };
 		FA5A44F128630AE800931EDC /* ReplicatedViewAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA5A44F028630AE800931EDC /* ReplicatedViewAnimating.swift */; };
@@ -150,6 +156,12 @@
 		FA3948D32862FE6B00D3DDF2 /* MarvelResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelResponse.swift; sourceTree = "<group>"; };
 		FA3948D52862FF3C00D3DDF2 /* MarvelCharacter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarvelCharacter.swift; sourceTree = "<group>"; };
 		FA3948D72862FFFE00D3DDF2 /* Thumbnail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Thumbnail.swift; sourceTree = "<group>"; };
+		FA49CC0A2865CA45004CE1F1 /* ComicDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailsView.swift; sourceTree = "<group>"; };
+		FA49CC0C2865CCA7004CE1F1 /* ComicDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComicDetailsViewModel.swift; sourceTree = "<group>"; };
+		FA49CC0E2865D123004CE1F1 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		FA49CC102865D449004CE1F1 /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		FA49CC132865D5A4004CE1F1 /* SwiftUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIViewController.swift; sourceTree = "<group>"; };
+		FA49CC162865D664004CE1F1 /* CharacterDetailsFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterDetailsFlowController.swift; sourceTree = "<group>"; };
 		FA5A44EC286309AD00931EDC /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 		FA5A44EE286309E500931EDC /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		FA5A44F028630AE800931EDC /* ReplicatedViewAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReplicatedViewAnimating.swift; sourceTree = "<group>"; };
@@ -314,6 +326,7 @@
 				FA109F5E28621E12005E1C94 /* Base */,
 				FA109F7528622AAB005E1C94 /* Root */,
 				FA5A44F2286316B700931EDC /* CharactersList */,
+				FA49CC152865D64F004CE1F1 /* CharacterDetails */,
 			);
 			path = Flows;
 			sourceTree = "<group>";
@@ -374,6 +387,8 @@
 				FA5A44FF2863292A00931EDC /* UIImageView+Extensions.swift */,
 				FA109F612862205C005E1C94 /* UINavigationController+Extensions.swift */,
 				FAC784342863A3E200ED372D /* UITableView+Extensions.swift */,
+				FA49CC102865D449004CE1F1 /* UIViewController+Extensions.swift */,
+				FA49CC0E2865D123004CE1F1 /* View+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -465,6 +480,32 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
+		FA49CC092865CA30004CE1F1 /* ComicDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FA49CC0A2865CA45004CE1F1 /* ComicDetailsView.swift */,
+				FA49CC0C2865CCA7004CE1F1 /* ComicDetailsViewModel.swift */,
+			);
+			path = ComicDetails;
+			sourceTree = "<group>";
+		};
+		FA49CC122865D596004CE1F1 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FA49CC132865D5A4004CE1F1 /* SwiftUIViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FA49CC152865D64F004CE1F1 /* CharacterDetails */ = {
+			isa = PBXGroup;
+			children = (
+				FA49CC162865D664004CE1F1 /* CharacterDetailsFlowController.swift */,
+				FAD8007C286A4C3900BB21EA /* Scenes */,
+			);
+			path = CharacterDetails;
+			sourceTree = "<group>";
+		};
 		FA5A44EB286309A200931EDC /* Colors */ = {
 			isa = PBXGroup;
 			children = (
@@ -486,7 +527,6 @@
 		FA5A44F5286316F200931EDC /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FA8AAED1286466BD0027AB3C /* Details */,
 				FA8AAED0286466B40027AB3C /* List */,
 			);
 			path = Scenes;
@@ -543,6 +583,7 @@
 		FA5A451F2863377500931EDC /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
+				FA49CC122865D596004CE1F1 /* ViewControllers */,
 				FA8AAEE42864995C0027AB3C /* Cells */,
 				FA5A452628633AC900931EDC /* Views */,
 			);
@@ -571,7 +612,7 @@
 			path = List;
 			sourceTree = "<group>";
 		};
-		FA8AAED1286466BD0027AB3C /* Details */ = {
+		FA8AAED1286466BD0027AB3C /* CharacterDetails */ = {
 			isa = PBXGroup;
 			children = (
 				FA8AAED2286466CB0027AB3C /* CharacterDetailsViewController.swift */,
@@ -580,7 +621,7 @@
 				FA8AAED628646F890027AB3C /* Layout */,
 				FA8AAEDE286493E30027AB3C /* Section */,
 			);
-			path = Details;
+			path = CharacterDetails;
 			sourceTree = "<group>";
 		};
 		FA8AAED628646F890027AB3C /* Layout */ = {
@@ -700,6 +741,15 @@
 				FAAF11812864D6D300142256 /* BlurPresentationController.swift */,
 			);
 			path = BlurTransition;
+			sourceTree = "<group>";
+		};
+		FAD8007C286A4C3900BB21EA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FA49CC092865CA30004CE1F1 /* ComicDetails */,
+				FA8AAED1286466BD0027AB3C /* CharacterDetails */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 		FAF8D65628624AF800C8CD29 /* NetworkProvider */ = {
@@ -945,6 +995,7 @@
 				FA5A4506286329EC00931EDC /* UITableView+Reusable.swift in Sources */,
 				FA3948D62862FF3C00D3DDF2 /* MarvelCharacter.swift in Sources */,
 				FA5A44FA28631D4B00931EDC /* CharactersService.swift in Sources */,
+				FA49CC142865D5A4004CE1F1 /* SwiftUIViewController.swift in Sources */,
 				FA109F25286218D1005E1C94 /* AppDelegate.swift in Sources */,
 				FA8AAEE828649BD90027AB3C /* TitleCollectionReusableView.swift in Sources */,
 				FA8AAED3286466CB0027AB3C /* CharacterDetailsViewController.swift in Sources */,
@@ -955,6 +1006,7 @@
 				FA109F6428622098005E1C94 /* NavigationFlowController.swift in Sources */,
 				FAFBDA882864A290006C02BC /* MarvelComic.swift in Sources */,
 				FAAF117C2864C3D400142256 /* EasterEggService.swift in Sources */,
+				FA49CC0D2865CCA7004CE1F1 /* ComicDetailsViewModel.swift in Sources */,
 				FA8AAED5286466E90027AB3C /* CharacterDetailsViewModel.swift in Sources */,
 				FA8AAECF2864582E0027AB3C /* IconMessageLabelView.swift in Sources */,
 				FA5A44FC28631E2E00931EDC /* MarvelPaginatedResponse.swift in Sources */,
@@ -971,6 +1023,7 @@
 				FAC784312863693F00ED372D /* Environment.swift in Sources */,
 				FAAF11802864D68700142256 /* BlurTransitionAnimator.swift in Sources */,
 				FAFBDA8F2864A61D006C02BC /* CharacterComicCellViewModel.swift in Sources */,
+				FA49CC0F2865D123004CE1F1 /* View+Extensions.swift in Sources */,
 				FA109F7728622AC1005E1C94 /* RootFlowController.swift in Sources */,
 				FA109F942862327C005E1C94 /* SplashScreenFlowController.swift in Sources */,
 				FA109F8F286231CD005E1C94 /* AppCore.swift in Sources */,
@@ -978,10 +1031,12 @@
 				FA5A450E28632EA400931EDC /* SnapKit+Extensions.swift in Sources */,
 				FA5A45212863378200931EDC /* GradientView.swift in Sources */,
 				FA5A45002863292A00931EDC /* UIImageView+Extensions.swift in Sources */,
+				FA49CC112865D449004CE1F1 /* UIViewController+Extensions.swift in Sources */,
 				FAF8D6502862488400C8CD29 /* Typealiases.swift in Sources */,
 				FA5A44FE2863211D00931EDC /* CharactersListViewModel.swift in Sources */,
 				FA109F972862331D005E1C94 /* SplashScreenViewController.swift in Sources */,
 				FA5A44F128630AE800931EDC /* ReplicatedViewAnimating.swift in Sources */,
+				FA49CC172865D664004CE1F1 /* CharacterDetailsFlowController.swift in Sources */,
 				FA109F9128623218005E1C94 /* RootFlowController+Extensions.swift in Sources */,
 				FA5A45232863391F00931EDC /* ViewState.swift in Sources */,
 				FA5A45162863307B00931EDC /* AppStyle.swift in Sources */,
@@ -997,6 +1052,7 @@
 				FAFBDA862864A0CE006C02BC /* EmptyParameters.swift in Sources */,
 				FAF8D65828624B1700C8CD29 /* NetworkProvider.swift in Sources */,
 				FA8AAEE32864959D0027AB3C /* CharacterDetailsHeaderCollectionViewCell.swift in Sources */,
+				FA49CC0B2865CA45004CE1F1 /* ComicDetailsView.swift in Sources */,
 				FA109F7F28622D0B005E1C94 /* Font.swift in Sources */,
 				FA5A451A2863307B00931EDC /* ViewDecorator.swift in Sources */,
 				FA8AAED828646F9E0027AB3C /* CharacterDetailsCompositionalLayout.swift in Sources */,

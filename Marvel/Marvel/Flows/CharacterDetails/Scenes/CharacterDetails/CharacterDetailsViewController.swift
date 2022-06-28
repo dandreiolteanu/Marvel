@@ -50,6 +50,7 @@ final class CharacterDetailsViewController: BaseViewController {
     override func setupView() {
         super.setupView()
 
+        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .primaryBackground.withAlphaComponent(0.5)
  
         collectionView.dataSource = dataSource
@@ -164,5 +165,7 @@ extension CharacterDetailsViewController {
 extension CharacterDetailsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         collectionView.deselectItem(at: indexPath, animated: true)
+
+        viewModel.inputs.didSelectItem(at: indexPath)
     }
 }

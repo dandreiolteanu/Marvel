@@ -9,12 +9,14 @@ import Foundation
 import Combine
 
 protocol CharacterDetailsFlowDelegate: AnyObject {
-    func didPressClose(on viewModel: CharacterDetailsViewModel)
+    func shouldCloseCharacterDetails(on viewModel: CharacterDetailsViewModel)
+    func shouldShowComicDetails(on viewModel: CharacterDetailsViewModel, characterComic: MarvelComic)
 }
 
 protocol CharacterDetailsViewModelInputs {
     func viewLoaded()
     func closeTouched()
+    func didSelectItem(at indexPath: IndexPath)
 }
 
 protocol CharacterDetailsViewModelOutputs {
@@ -78,7 +80,13 @@ final class CharacterDetailsViewModelImpl: CharacterDetailsViewModel, CharacterD
     }
 
     func closeTouched() {
-        flowDelegate?.didPressClose(on: self)
+        flowDelegate?.shouldCloseCharacterDetails(on: self)
+    }
+
+    func didSelectItem(at indexPath: IndexPath) {
+        guard dataSourceSnapshot.sectionIdentifiers[indexPath.section].type == .comics else { return }
+
+        flowDelegate?.shouldShowComicDetails(on: self, characterComic: characterComics[indexPath.item])
     }
 
     // MARK: - Private Methods
