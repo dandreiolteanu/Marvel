@@ -7,9 +7,9 @@
 
 import UIKit
 
-class RootFlowController {
+final class RootFlowController {
 
-    // MARK: - Private Properties
+    // MARK: - Public Properties
 
     weak var window: UIWindow?
 
